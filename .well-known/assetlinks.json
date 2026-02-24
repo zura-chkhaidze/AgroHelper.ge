@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "ge.agrohelper.app",
+    "sha256_cert_fingerprints":
+    ["8D:C1:C9:85:4A:F4:A2:FD:EE:BC:55:A7:B0:EA:F7:3C:6D:80:BA:03:DC:A4:7F:6C:FC:99:FD:C9:AE:7D:64:F8"]
+  }
+}]
