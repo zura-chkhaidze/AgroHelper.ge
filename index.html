@@ -1394,7 +1394,7 @@
                   ><span
                     class="__cf_email__"
                     data-cfemail="94f5f3e6fbfcf1f8e4f1e6bafbf2f2fdf7fdf5f8d4f3f9f5fdf8baf7fbf9"
-                    >[email&#160;protected]</span
+                    >agrohelper.official@gmail.com</span
                   ></a
                 >
               </div>
@@ -1436,7 +1436,31 @@
         <img src="Stylized plant with .png" alt="AgroHelper" />
         <span>Agro<em>Helper</em></span>
       </div>
-      <p>&cop</p>
+      <p>&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
+      
     </footer>
+    <script>
+      function switchLang(lang) {
+        const ka = document.getElementById("lang-ka");
+        const en = document.getElementById("lang-en");
+        const tabs = document.querySelectorAll(".lang-tab");
+
+        if (lang === "ka") {
+          ka.style.display = "block";
+          en.style.display = "none";
+        } else {
+          ka.style.display = "none";
+          en.style.display = "block";
+        }
+
+        tabs.forEach((tab) => tab.classList.remove("active"));
+
+        if (lang === "ka") {
+          tabs[0].classList.add("active");
+        } else {
+          tabs[1].classList.add("active");
+        }
+      }
+    </script>
   </body>
 </html>
