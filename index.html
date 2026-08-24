@@ -901,6 +901,138 @@
     }
 
     /* Privacy & Terms Section */
+
+    /* ---- Full-page product detail (replaces old modal for shareable links) ---- */
+    .product-page {
+      padding: 110px 1.5rem 4rem;
+      min-height: 100vh;
+      background: var(--cream);
+    }
+
+    .product-page-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .product-page-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1.4rem;
+    }
+
+    .back-to-market {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--forest);
+      font-weight: 700;
+      font-size: 0.88rem;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.55rem 1rem;
+      border-radius: 100px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .back-to-market:hover {
+      border-color: var(--leaf);
+      color: var(--leaf);
+    }
+
+    .copy-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mist);
+      border: 1px solid rgba(45, 122, 58, 0.2);
+      color: var(--forest);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.55rem 1rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-link-btn:hover {
+      background: #ddeee0;
+    }
+
+    .product-page-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ---- Mobile bottom navigation (hidden on desktop) ---- */
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding-bottom: 68px;
+      }
+
+      .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: rgba(245, 240, 232, 0.97);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(44, 122, 58, 0.14);
+        padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .mobile-bottom-nav a,
+      .mobile-bottom-nav button {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        background: none;
+        border: none;
+        text-decoration: none;
+        color: #8a8a8a;
+        font-family: inherit;
+        font-size: 0.66rem;
+        font-weight: 600;
+        padding: 6px 2px;
+        cursor: pointer;
+      }
+
+      .mobile-bottom-nav i {
+        font-size: 1.05rem;
+      }
+
+      .mobile-bottom-nav .mbn-highlight {
+        color: var(--leaf);
+      }
+
+      .mobile-bottom-nav a:active,
+      .mobile-bottom-nav button:active {
+        opacity: 0.6;
+      }
+
+      .product-page {
+        padding: 90px 1.1rem 2rem;
+      }
+
+      .product-page-card {
+        padding: 1.2rem;
+        border-radius: 18px;
+      }
+    }
     .privacy-section {
       padding: 7rem 2rem;
       background: #fff;
@@ -1263,8 +1395,32 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
+  <!-- MOBILE BOTTOM NAV (visible only on small screens) -->
+  <nav class="mobile-bottom-nav">
+    <a href="#home"><i class="fa-solid fa-house"></i> მთავარი</a>
+    <a href="#market" class="mbn-highlight"><i class="fa-solid fa-store"></i> ბაზარი</a>
+    <button type="button" onclick="openAppModal('download')"><i class="fa-solid fa-download"></i> გადმოწერა</button>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i> კონტაქტი</a>
+  </nav>
+
+  <!-- FULL-PAGE PRODUCT DETAIL (shareable via ?product=ID link) -->
+  <section id="productPage" class="product-page" style="display:none;">
+    <div class="product-page-inner">
+      <div class="product-page-toolbar">
+        <a href="#" id="backToMarketBtn" class="back-to-market">
+          <i class="fa-solid fa-arrow-left"></i> უკან ბაზარში
+        </a>
+        <button type="button" class="copy-link-btn" id="copyLinkBtn" onclick="copyCurrentLink(this)">
+          <i class="fa-solid fa-link"></i> ბმულის კოპირება
+        </button>
+      </div>
+      <div id="productPageContent"><!-- filled by JS --></div>
+    </div>
+  </section>
+
+  <div id="mainContent">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-logo-badge">
@@ -1442,7 +1598,7 @@
         <div class="hero-card">
           <div class="icon">☀️</div>
           <h4>ამინდი &amp; ნიადაგი</h4>
-          <p>ცოცხალი მონაცემები თქვენი მეურნეობისთვის</p>
+          <p>რეალ-ტაიმ მონაცემები თქვენი მეურნეობისთვის</p>
         </div>
         <div class="hero-card">
           <div class="icon">💧</div>
@@ -1477,7 +1633,7 @@
         დარეკვით ან WhatsApp-ით.
       </p>
       <div class="market-perks">
-        <div class="market-perk"><i class="fa-solid fa-hand-holding-dollar"></i>ყიდვა-გაყიდვა საკომისიოს გარეშე</div>
+        <div class="market-perk"><i class="fa-solid fa-hand-holding-dollar"></i> უკომისიო ყიდვა-გაყიდვა</div>
         <div class="market-perk"><i class="fa-solid fa-bolt"></i> პირდაპირი კონტაქტი ფერმერთან</div>
         <div class="market-perk"><i class="fa-solid fa-map-location-dot"></i> რეგიონების მიხედვით ძებნა</div>
       </div>
@@ -1967,6 +2123,8 @@
       </div>
     </div>
   </section>
+  </div>
+  <!-- /#mainContent -->
 
   <!-- FOOTER -->
   <footer>
@@ -1977,18 +2135,13 @@
     <p>&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
   </footer>
 
-  <!-- MODAL: DETAILED LISTING VIEW -->
-  <div class="modal-overlay" id="detailModal">
-    <div class="modal-card" id="detailContent"></div>
-  </div>
-
   <!-- MODAL: APP DOWNLOAD BRIDGE -->
   <div class="modal-overlay" id="appModal">
     <div class="modal-card" style="text-align: center;">
       <button class="modal-close-btn" onclick="closeModal('appModal')">✕</button>
       <i class="fa-solid fa-mobile-screen-button" style="font-size: 48px; color: var(--leaf); margin-bottom: 1rem;"></i>
-      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest);">დადეთ განცხადება
-        წამებში! 🌾
+      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest);">განცხადება დადეთ
+        წამებში
       </h2>
       <p style="color: #666; margin: 12px 0 0 0; font-size: 0.9rem; line-height: 1.6;">
         აგრო ბაზარზე განცხადების დასადებად გადმოწერეთ AgroHelper — გარდა ამისა, აპლიკაციაში AI-ით
@@ -2153,7 +2306,7 @@
       grid.innerHTML = items.map(item => {
         const img = item.images?.[0]?.image || '';
         return `
-            <div class="market-card" onclick="openDetail(${item.id})">
+            <a class="market-card" href="?product=${item.id}" style="text-decoration:none; color:inherit;">
               <div class="market-card-img">
                 ${img ? `<img src="${img}" alt="${item.title}">` : '<div style="height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;"><i class="fa-regular fa-image fa-2x"></i></div>'}
                 <div class="market-cat-tag">${item.category_display || ''}</div>
@@ -2166,17 +2319,25 @@
                   <span><i class="fa-solid fa-eye"></i> ${item.views_count || 0}</span>
                 </div>
               </div>
-            </div>
+            </a>
           `;
       }).join('');
     }
 
-    async function openDetail(id) {
-      const modal = document.getElementById("detailModal");
-      const content = document.getElementById("detailContent");
+    async function renderProductPage(id) {
+      const productPage = document.getElementById("productPage");
+      const mainContent = document.getElementById("mainContent");
+      const content = document.getElementById("productPageContent");
+
+      // Show a lightweight loading state immediately, then swap in the data.
+      content.innerHTML = `<div style="text-align:center; padding:4rem 0; color:#999;"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>`;
+      mainContent.style.display = "none";
+      productPage.style.display = "block";
+      window.scrollTo(0, 0);
 
       try {
         const res = await fetch(`${API_BASE}${id}/`);
+        if (!res.ok) throw new Error("not found");
         const item = await res.json();
 
         let waLink = "#";
@@ -2188,55 +2349,114 @@
         }
 
         const images = item.images || [];
+        document.title = `${item.title} — აგრო ბაზარი | AgroHelper`;
 
         content.innerHTML = `
-            <button class="modal-close-btn" onclick="closeModal('detailModal')">✕</button>
-            
-            <div style="max-height: 280px; overflow: hidden; border-radius: 18px; margin-bottom: 1.2rem; background: var(--mist);">
-              ${images.length ? `<img src="${images[0].image}" style="width:100%; height:250px; object-fit:cover;">` : '<div style="height:180px;display:flex;align-items:center;justify-content:center;color:#ccc;"><i class="fa-regular fa-image fa-3x"></i></div>'}
-            </div>
-
-            <h2 style="font-family:'Playfair Display', serif; font-size:1.4rem; font-weight:800; color:var(--forest);">${item.title}</h2>
-            <div style="font-size:1.5rem; font-weight:900; color:var(--leaf); margin:8px 0;">
-              ${item.price} ₾ <span style="font-size:0.9rem; color:#888; font-weight:normal;">/ ${item.unit_display || ''}</span>
-            </div>
-
-            <div class="stats-grid">
-              <div class="stat-box"><div>რაოდენობა</div><div class="stat-value">${item.quantity ? item.quantity + ' ' + item.unit_display : '—'}</div></div>
-              <div class="stat-box"><div>რეგიონი</div><div class="stat-value">${item.region_display || '—'}</div></div>
-              <div class="stat-box"><div>ნახვა</div><div class="stat-value">${item.views_count || 0}</div></div>
-            </div>
-
-            ${item.description ? `<p style="color:#555; font-size:0.9rem; line-height:1.6; margin-bottom:1.2rem;">${item.description}</p>` : ''}
-
-            <div style="background:var(--mist); padding:12px 16px; border-radius:14px; margin-bottom:1.2rem;">
-              <div style="font-weight:700; color:var(--forest); font-size:0.9rem;">👤 ${item.seller_name || 'მომხმარებელი'}</div>
-              <div style="font-size:0.75rem; color:#777;">AgroHelper-ის ავტორიზებული წევრი</div>
-            </div>
-
-            <div class="contact-row">
-              ${item.phone ? `<a href="tel:${item.phone}" class="btn-call"><i class="fa-solid fa-phone"></i> დარეკვა</a>` : ''}
-              ${item.phone ? `<a href="${waLink}" target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>` : ''}
-            </div>
-
-            ${item.phone ? `
-            <div class="phone-reveal-box">
-              <div class="prb-left">
-                <div class="prb-icon"><i class="fa-solid fa-phone-volume"></i></div>
-                <div>
-                  <div class="prb-label">ნომერი</div>
-                  <div class="prb-number">${item.phone}</div>
-                </div>
+            <div class="product-page-card">
+              <div style="max-height: 340px; overflow: hidden; border-radius: 18px; margin-bottom: 1.2rem; background: var(--mist);">
+                ${images.length ? `<img src="${images[0].image}" style="width:100%; height:320px; object-fit:cover;">` : '<div style="height:220px;display:flex;align-items:center;justify-content:center;color:#ccc;"><i class="fa-regular fa-image fa-3x"></i></div>'}
               </div>
-              <button type="button" class="prb-copy" onclick="copyPhone(this, '${item.phone}')">
-                <i class="fa-regular fa-copy"></i> კოპირება
-              </button>
-            </div>` : ''}
-          `;
 
-        modal.style.display = "flex";
+              ${images.length > 1 ? `
+              <div style="display:flex; gap:8px; overflow-x:auto; margin-bottom:1.2rem; padding-bottom:4px;">
+                ${images.map(im => `<img src="${im.image}" style="width:74px; height:74px; object-fit:cover; border-radius:10px; flex-shrink:0;">`).join('')}
+              </div>` : ''}
+
+              <h1 style="font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:800; color:var(--forest);">${item.title}</h1>
+              <div style="font-size:1.6rem; font-weight:900; color:var(--leaf); margin:8px 0;">
+                ${item.price} ₾ <span style="font-size:0.9rem; color:#888; font-weight:normal;">/ ${item.unit_display || ''}</span>
+              </div>
+
+              <div class="stats-grid">
+                <div class="stat-box"><div>რაოდენობა</div><div class="stat-value">${item.quantity ? item.quantity + ' ' + item.unit_display : '—'}</div></div>
+                <div class="stat-box"><div>რეგიონი</div><div class="stat-value">${item.region_display || '—'}</div></div>
+                <div class="stat-box"><div>ნახვა</div><div class="stat-value">${item.views_count || 0}</div></div>
+              </div>
+
+              ${item.description ? `<p style="color:#555; font-size:0.95rem; line-height:1.7; margin-bottom:1.2rem;">${item.description}</p>` : ''}
+
+              <div style="background:var(--mist); padding:12px 16px; border-radius:14px; margin-bottom:1.2rem;">
+                <div style="font-weight:700; color:var(--forest); font-size:0.9rem;">👤 ${item.seller_name || 'მომხმარებელი'}</div>
+                <div style="font-size:0.75rem; color:#777;">AgroHelper-ის ავტორიზებული წევრი</div>
+              </div>
+
+              <div class="contact-row">
+                ${item.phone ? `<a href="tel:${item.phone}" class="btn-call"><i class="fa-solid fa-phone"></i> დარეკვა</a>` : ''}
+                ${item.phone ? `<a href="${waLink}" target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>` : ''}
+              </div>
+
+              ${item.phone ? `
+              <div class="phone-reveal-box">
+                <div class="prb-left">
+                  <div class="prb-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                  <div>
+                    <div class="prb-label">კომპიუტერიდან? დარეკეთ ამ ნომერზე</div>
+                    <div class="prb-number">${item.phone}</div>
+                  </div>
+                </div>
+                <button type="button" class="prb-copy" onclick="copyPhone(this, '${item.phone}')">
+                  <i class="fa-regular fa-copy"></i> კოპირება
+                </button>
+              </div>` : ''}
+            </div>
+          `;
       } catch (err) {
         console.error("Detail Error:", err);
+        content.innerHTML = `<div class="product-page-card" style="text-align:center; padding:3rem 1.5rem; color:#888;">
+            <i class="fa-regular fa-face-frown fa-2x" style="margin-bottom:10px;"></i>
+            <p>ეს განცხადება ვერ მოიძებნა — შესაძლოა წაშლილია ან ბმული არასწორია.</p>
+          </div>`;
+      }
+    }
+
+    function showProductPageFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("product");
+      if (id) {
+        renderProductPage(id);
+      } else {
+        hideProductPage();
+      }
+    }
+
+    function hideProductPage() {
+      document.getElementById("productPage").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      document.title = "AgroHelper - Modern Agriculture AI & აგრო ბაზარი";
+    }
+
+    // Back button: strip ?product= from the URL and restore the market view
+    document.getElementById("backToMarketBtn")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const url = new URL(window.location.href);
+      url.searchParams.delete("product");
+      history.pushState({}, "", url.pathname + url.hash);
+      hideProductPage();
+      document.getElementById("market")?.scrollIntoView();
+    });
+
+    // Support browser back/forward between market and product links
+    window.addEventListener("popstate", showProductPageFromURL);
+
+    function copyCurrentLink(btn) {
+      const url = window.location.href;
+      const done = () => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> დაკოპირდა';
+        setTimeout(() => { btn.innerHTML = original; }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done).catch(done);
+      } else {
+        const temp = document.createElement("textarea");
+        temp.value = url;
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand("copy"); } catch (e) { }
+        document.body.removeChild(temp);
+        done();
       }
     }
 
@@ -2284,6 +2504,7 @@
     window.addEventListener("DOMContentLoaded", () => {
       renderCategories();
       fetchListings();
+      showProductPageFromURL();
     });
   </script>
 </body>
