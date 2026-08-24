@@ -99,6 +99,48 @@
       color: var(--leaf);
     }
 
+    .nav-market-link {
+      display: flex !important;
+      align-items: center;
+      gap: 6px;
+      opacity: 1 !important;
+      color: #fff !important;
+      background: linear-gradient(135deg, var(--leaf), var(--mint));
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      box-shadow: 0 4px 14px rgba(45, 122, 58, 0.28);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-market-link:hover {
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(45, 122, 58, 0.38);
+    }
+
+    .nav-market-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 rgba(168, 224, 99, 0.6);
+      animation: navDotPulse 1.8s infinite;
+    }
+
+    @keyframes navDotPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(168, 224, 99, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 6px rgba(168, 224, 99, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(168, 224, 99, 0);
+      }
+    }
+
     .hero {
       min-height: 100vh;
       background: var(--forest);
@@ -415,6 +457,101 @@
       margin-bottom: 2rem;
     }
 
+    .market-banner {
+      position: relative;
+      background: linear-gradient(135deg, var(--forest) 0%, #204a26 55%, var(--leaf) 130%);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .market-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 90% at 92% 15%, rgba(168, 224, 99, 0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 70% at 5% 100%, rgba(93, 184, 122, 0.2) 0%, transparent 60%);
+      z-index: -1;
+    }
+
+    .market-banner .section-title,
+    .market-banner p {
+      color: #fff;
+    }
+
+    .market-banner p {
+      color: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    .market-banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168, 224, 99, 0.16);
+      border: 1px solid rgba(168, 224, 99, 0.4);
+      color: var(--lime);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+    }
+
+    .market-perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.6rem 0 1.8rem;
+    }
+
+    .market-perk {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.55rem 1rem;
+      border-radius: 100px;
+    }
+
+    .market-perk i {
+      color: var(--lime);
+    }
+
+    .btn-add-listing-lg {
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .app-modal-store-frame {
+      background: linear-gradient(135deg, var(--forest) 0%, #204a26 55%, var(--leaf) 140%);
+      border-radius: 22px;
+      padding: 1.4rem 1.2rem;
+      margin-top: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-modal-store-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 90% at 90% 10%, rgba(168, 224, 99, 0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .app-modal-store-frame .store-wrapper {
+      margin-top: 0;
+      position: relative;
+    }
+
     .btn-add-listing {
       background: var(--leaf);
       color: #fff;
@@ -684,6 +821,83 @@
       color: var(--forest);
       margin-top: 4px;
       font-size: 0.85rem;
+    }
+
+    /* ---- Desktop phone-reveal (call/whatsapp fallback) ---- */
+    .phone-reveal-box {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--mist);
+      border: 1.5px dashed rgba(45, 122, 58, 0.35);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      margin-top: 0.7rem;
+    }
+
+    .is-desktop .phone-reveal-box {
+      display: flex;
+    }
+
+    .phone-reveal-box .prb-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .phone-reveal-box .prb-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--leaf);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .phone-reveal-box .prb-label {
+      font-size: 0.68rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    .phone-reveal-box .prb-number {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--forest);
+      letter-spacing: 0.02em;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    .phone-reveal-box .prb-copy {
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      padding: 0.55rem 0.9rem;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .phone-reveal-box .prb-copy:hover {
+      background: var(--leaf);
+    }
+
+    .phone-reveal-box .prb-copy:active {
+      transform: scale(0.96);
     }
 
     /* Privacy & Terms Section */
@@ -1022,6 +1236,17 @@
 </head>
 
 <body>
+  <script>
+    // Detect desktop/mouse users up-front so the phone-number fallback
+    // (call/whatsapp links don't do anything useful without a phone app)
+    // can be shown before first paint of the modal.
+    (function () {
+      try {
+        var isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        if (isDesktop) document.documentElement.classList.add("is-desktop");
+      } catch (e) { }
+    })();
+  </script>
   <!-- NAVIGATION -->
   <nav>
     <a href="#home" class="logo">
@@ -1031,7 +1256,7 @@
     <ul>
       <li><a href="#home">მთავარი</a></li>
       <li><a href="#features">ფუნქციები</a></li>
-      <li><a href="#market">აგრო ბაზარი</a></li>
+      <li><a href="#market" class="nav-market-link"><span class="nav-market-dot"></span> 🌾 აგრო ბაზარი</a></li>
       <li><a href="#privacy">Privacy</a></li>
       <li><a href="#contact">კონტაქტი</a></li>
       <li><a href="#terms">Terms</a></li>
@@ -1244,16 +1469,20 @@
   </div>
   <!-- ==================== აგრო ბაზარი SECTION ==================== -->
   <section id="market" class="market-section">
-    <div class="market-header-flex">
-      <div>
-        <div class="section-label">ონლაინ პლატფორმა</div>
-        <h2 class="section-title" style="margin-bottom:0.5rem;">აგრო ბაზარი</h2>
-        <p style="color:#6b7280; font-size:0.95rem; font-weight:300;">
-          იყიდეთ და გაყიდეთ აგრო პროდუქცია, ნერგები და ტექნიკა პირდაპირ ფერმერებისგან.
-        </p>
+    <div class="market-banner">
+      <div class="market-banner-badge">🌾 ცოცხალი პლატფორმა · პირდაპირ ფერმერებისგან</div>
+      <h2 class="section-title" style="margin:0.6rem 0 0.7rem;">აგრო ბაზარი</h2>
+      <p style="color:#6b7280; font-size:1rem; font-weight:300; max-width:560px;">
+        იყიდეთ და გაყიდეთ პროდუქცია, ნერგები, პირუტყვი და ტექნიკა — შუამავლების გარეშე, პირდაპირ ფერმერთან
+        დარეკვით ან WhatsApp-ით.
+      </p>
+      <div class="market-perks">
+        <div class="market-perk"><i class="fa-solid fa-hand-holding-dollar"></i>ყიდვა-გაყიდვა საკომისიოს გარეშე</div>
+        <div class="market-perk"><i class="fa-solid fa-bolt"></i> პირდაპირი კონტაქტი ფერმერთან</div>
+        <div class="market-perk"><i class="fa-solid fa-map-location-dot"></i> რეგიონების მიხედვით ძებნა</div>
       </div>
-      <button class="btn-add-listing" onclick="openAppModal('add')">
-        <i class="fa-solid fa-plus"></i> განცხადების დამატება
+      <button class="btn-add-listing btn-add-listing-lg" onclick="openAppModal('add')">
+        <i class="fa-solid fa-plus"></i> განცხადების უფასოდ დამატება
       </button>
     </div>
 
@@ -1758,20 +1987,86 @@
     <div class="modal-card" style="text-align: center;">
       <button class="modal-close-btn" onclick="closeModal('appModal')">✕</button>
       <i class="fa-solid fa-mobile-screen-button" style="font-size: 48px; color: var(--leaf); margin-bottom: 1rem;"></i>
-      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest);">გადმოწერეთ AgroHelper-ი
+      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest);">დადეთ განცხადება
+        წამებში! 🌾
       </h2>
-      <p style="color: #666; margin: 12px 0 24px 0; font-size: 0.9rem; line-height: 1.6;">
-        აგრო ბაზარში განცხადების განსათავსებლად და AI სკანერით სარგებლობისთვის გადმოწერეთ მობილური აპლიკაცია.
+      <p style="color: #666; margin: 12px 0 0 0; font-size: 0.9rem; line-height: 1.6;">
+        აგრო ბაზარზე განცხადების დასადებად გადმოწერეთ AgroHelper — გარდა ამისა, აპლიკაციაში AI-ით
+        დაასკანერებთ მცენარეს, მიიღებთ ამინდისა და ნიადაგის ანალიზს და პერსონალურ მოვლის რჩევებს.
       </p>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://play.google.com/store/apps/details?id=ge.agrohelper.app&pcampaignid=web_share" target="_blank"
-          style="background: #000; color: #fff; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;">
-          <i class="fa-brands fa-google-play"></i> Google Play
-        </a>
-        <a href="https://apps.apple.com/us/app/agrohelper/id6761626943" target="_blank"
-          style="background: #000; color: #fff; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;">
-          <i class="fa-brands fa-apple"></i> App Store
-        </a>
+
+      <div class="app-modal-store-frame">
+        <div class="store-wrapper">
+          <div class="store-cta-label">
+            <span class="store-cta-arrow">↓</span>
+            გადმოწერეთ
+            <span class="store-cta-arrow">↓</span>
+          </div>
+          <div class="store-buttons-row">
+            <a href="https://play.google.com/store/apps/details?id=ge.agrohelper.app&pcampaignid=web_share"
+              target="_blank" style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: #000;
+                  color: white;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: background 0.2s;
+                  border-right: 1px solid rgba(255, 255, 255, 0.08);
+                " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
+              <svg viewBox="0 0 512 512" width="22" height="22" style="margin-right: 10px">
+                <path fill="#4285F4" d="M46.8 441.6c-4.8-5.2-7.8-12.2-7.8-20.2V90.6c0-8 3-15 7.8-20.2L250.6 256z" />
+                <path fill="#EA4335"
+                  d="M364.6 145.9L106.5 6.4c-5.1-2.8-11-4.4-17.1-4.4-11.2 0-21.1 5.6-27.1 14.1L250.6 256z" />
+                <path fill="#FBBC04"
+                  d="M465.3 227.3l-100.7-55.7-114 84.4 114 84.4 100.7-55.7c16.3-9 27.7-26.1 27.7-48.7s-11.4-39.7-27.7-48.7z" />
+                <path fill="#34A853"
+                  d="M62.3 495.9c6 8.5 15.9 14.1 27.1 14.1 6.1 0 12-1.6 17.1-4.4l258.1-139.5L250.6 256z" />
+              </svg>
+              <div style="
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 1.1;
+                  ">
+                <span style="
+                      font-size: 9px;
+                      opacity: 0.8;
+                      text-transform: uppercase;
+                    ">Get it on</span>
+                <span style="font-size: 15px; font-weight: 700">Google Play</span>
+              </div>
+            </a>
+
+            <a href="https://apps.apple.com/us/app/agrohelper/id6761626943" target="_blank" style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: #000;
+                  color: white;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: background 0.2s;
+                " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
+              <svg viewBox="0 0 384 512" width="20" height="20" style="margin-right: 10px; fill: white">
+                <path
+                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+              </svg>
+              <div style="
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 1.1;
+                  ">
+                <span style="
+                      font-size: 9px;
+                      opacity: 0.8;
+                      text-transform: uppercase;
+                    ">Download on the</span>
+                <span style="font-size: 15px; font-weight: 700">App Store</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1923,11 +2218,46 @@
               ${item.phone ? `<a href="tel:${item.phone}" class="btn-call"><i class="fa-solid fa-phone"></i> დარეკვა</a>` : ''}
               ${item.phone ? `<a href="${waLink}" target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>` : ''}
             </div>
+
+            ${item.phone ? `
+            <div class="phone-reveal-box">
+              <div class="prb-left">
+                <div class="prb-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                  <div class="prb-label">კომპიუტერიდან? დარეკეთ ამ ნომერზე</div>
+                  <div class="prb-number">${item.phone}</div>
+                </div>
+              </div>
+              <button type="button" class="prb-copy" onclick="copyPhone(this, '${item.phone}')">
+                <i class="fa-regular fa-copy"></i> კოპირება
+              </button>
+            </div>` : ''}
           `;
 
         modal.style.display = "flex";
       } catch (err) {
         console.error("Detail Error:", err);
+      }
+    }
+
+    function copyPhone(btn, phone) {
+      const done = () => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> დაკოპირდა';
+        setTimeout(() => { btn.innerHTML = original; }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(phone).then(done).catch(done);
+      } else {
+        const temp = document.createElement("textarea");
+        temp.value = phone;
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand("copy"); } catch (e) { }
+        document.body.removeChild(temp);
+        done();
       }
     }
 
