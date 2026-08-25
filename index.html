@@ -6,7 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="MzceSNmMuxjhDNcrOAHJOkucnNRyWrEacb5LJtW_2Q0" />
   <meta name="google-site-verification" content="DheUb071dcrbRxN5HUAfOEX5daRcXS65jhKouhSCq4Y" />
-  <title>AgroHelper - Modern Agriculture AI & აგრო ბაზარი</title>
+    <title>AgroHelper - Modern Agriculture AI & აგრო ბაზარი</title>
+  <meta name="description" content="AgroHelper — აგრო AI ასისტენტი და აგრო ბაზარი. იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან საქართველოში." />
+  <meta property="og:title" content="AgroHelper - აგრო ბაზარი" />
+  <meta property="og:description" content="იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან" />
+  <meta property="og:image" content="https://agrohelper.ge/og-image.jpg" />
+  <meta property="og:url" content="https://agrohelper.ge/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ka_GE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AgroHelper - აგრო ბაზარი" />
+  <meta name="twitter:description" content="იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან" />
+  <meta name="twitter:image" content="https://agrohelper.ge/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -440,6 +451,25 @@
       line-height: 1.65;
       font-weight: 300;
     }
+
+    
+    .btn-report {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 12px;
+      border: 1.5px solid #fecaca;
+      background: #fef2f2;
+      color: #b91c1c;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: "DM Sans", sans-serif;
+      transition: background 0.2s;
+    }
+    .btn-report:hover { background: #fee2e2; }
 
     /* ==================== აგრო ბაზარი STYLES ==================== */
     .market-section {
@@ -1195,6 +1225,85 @@
       margin-bottom: 0.8rem;
     }
 
+    .product-gallery {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .product-gallery-main {
+      height: 320px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--mist);
+      touch-action: pan-y;
+    }
+
+    .product-gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-gallery-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--forest);
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+      z-index: 1;
+    }
+
+    .product-gallery-button:hover { background: #fff; }
+    .product-gallery-button.prev { left: 12px; }
+    .product-gallery-button.next { right: 12px; }
+
+    .product-gallery-counter {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(26, 58, 30, 0.78);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .product-gallery-thumbnails {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 10px;
+      padding: 2px 2px 4px;
+    }
+
+    .product-gallery-thumbnail {
+      width: 74px;
+      height: 74px;
+      padding: 0;
+      flex: 0 0 auto;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--mist);
+      cursor: pointer;
+    }
+
+    .product-gallery-thumbnail.active { border-color: var(--leaf); }
+
+    .product-gallery-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .contact-icon {
       width: 42px;
       height: 42px;
@@ -1733,7 +1842,7 @@
       </div>
 
       <div class="privacy-meta">
-        <span>📅 ბოლო განახლება: მარტი 2026</span>
+        <span>📅 ბოლო განახლება: აგვისტო 2026</span>
         <span>🌍 GDPR Compliant</span>
         <span>🔒 პერსონალურ მონაცემთა დაცვის შესახებ კანონი</span>
       </div>
@@ -1771,6 +1880,16 @@
           <p>
             <strong>2.1. თქვენ მიერ მოწოდებული:</strong> სახელი, ელ-ფოსტა,
             მცენარეების ფოტოები (დიაგნოსტიკისთვის) და თქვენი ბაღის ჩანაწერები.
+          </p>
+          <p>
+            <strong>2.1.1. აგრო ბაზარი (საჯარო მონაცემები):</strong>
+            მარკეტფლეისზე განცხადების გამოქვეყნებისას თქვენ მიერ მითითებული
+            <strong>ტელეფონის ნომერი</strong>, <strong>სახელი / გამყიდველის სახელი</strong>,
+            <strong>რეგიონი</strong>, პროდუქტის აღწერა და ფოტოები ხდება
+            <strong>საჯაროდ ხილვადი</strong> პლატფორმის ნებისმიერი ვიზიტორისთვის
+            (აპლიკაცია და ვებგვერდი). განცხადების გამოქვეყნებით თქვენ ეთანხმებით
+            ამ მონაცემების საჯარო გამოქვეყნებას. ტელეფონი განკუთვნილია მხოლოდ
+            გარიგების კომუნიკაციისთვის და არ უნდა გამოიყენებოდეს სპამისთვის.
           </p>
           <p>
             <strong>2.2. ავტომატურად შეგროვებული:</strong> მოწყობილობის ტიპი,
@@ -2028,47 +2147,105 @@
       <h2 class="section-title">Terms of Service (EULA)</h2>
 
       <div class="policy-block">
-        <h3>🇬🇪 გამოყენების წესები და პირობები</h3>
+        <h3>🇬🇪 გამოყენების წესები და პირობები (EULA)</h3>
         <p>
-          AgroHelper-ის გამოყენებით თქვენ ეთანხმებით სტანდარტულ Apple-ის
-          სამომხმარებლო შეთანხმებას (EULA). აპლიკაციაში აკრძალულია
-          არასათანადო, შეურაცხმყოფელი ან უკანონო კონტენტის განთავსება.
+          AgroHelper-ის (აპლიკაცია და ვებგვერდი) გამოყენებით თქვენ ეთანხმებით
+          წინამდებარე წესებსა და პირობებს, აგრეთვე Apple-ის სტანდარტულ
+          სამომხმარებლო შეთანხმებას (EULA) და Google Play-ის შესაბამის პირობებს.
+          აპლიკაციაში აკრძალულია არასათანადო, შეურაცხმყოფელი ან უკანონო
+          კონტენტის განთავსება.
         </p>
+
         <p>
-          <strong>გამოწერა:</strong> ფასიანი სერვისები აქტიურდება App Store-ის
-          მეშვეობით. გაუქმება შესაძლებელია ნებისმიერ დროს თქვენი Apple ID
-          პარამეტრებიდან.
+          <strong>1. საინფორმაციო / საშუამავლო პლატფორმა (Intermediary Disclaimer):</strong>
+          აგრო ბაზარი (Marketplace) წარმოადგენს მხოლოდ <strong>საინფორმაციო და
+          საშუამავლო</strong> პლატფორმას, სადაც მომხმარებლებს შეუძლიათ განცხადებების
+          განთავსება და ერთმანეთთან დაკავშირება. AgroHelper <strong>არ არის</strong>
+          გამყიდველი, მყიდველი, აგენტი ან გარანტი. ჩვენ <strong>არ ვიღებთ
+          პასუხისმგებლობას</strong> მყიდველსა და გამყიდველს შორის გარიგებაზე,
+          პროდუქციის ხარისხზე, რაოდენობაზე, ტრანსპორტირებაზე, გადახდაზე,
+          მიწოდებაზე ან შესაძლო თაღლითობაზე. ნებისმიერი გარიგება ხორციელდება
+          მხარეებს შორის პირდაპირ, მათი რისკითა და პასუხისმგებლობით. რეკომენდებულია
+          პირადი შემოწმება და უსაფრთხო გადახდის მეთოდების გამოყენება.
         </p>
+
         <p>
-          <strong>UGC პოლიტიკა:</strong> მომხმარებლის მიერ ატვირთული კონტენტი,
-          რომელიც არღვევს წესებს, წაიშლება 24 საათში, ხოლო მომხმარებელი
-          დაიბლოკება.
+          <strong>2. მომხმარებლის კონტენტი (UGC) და საჩივარი:</strong>
+          განცხადებები, ფოტოები, აღწერები და საკონტაქტო მონაცემები წარმოადგენს
+          მომხმარებლის მიერ შექმნილ კონტენტს (UGC). წესების დამრღვევი კონტენტი
+          შეიძლება წაიშალოს 24 საათში, ხოლო ანგარიში — დაიბლოკოს. ნებისმიერ
+          მომხმარებელს შეუძლია ყალბი, მავნე ან უკანონო განცხადების
+          <strong>საჩივარი / Report</strong> პროდუქტის გვერდიდან ან ელ-ფოსტით
+          (support). სერიოზული დარღვევის შემთხვევაში შეგვიძლია თანამშრომლობა
+          უფლებამოსილ ორგანოებთან საქართველოს კანონმდებლობის შესაბამისად.
         </p>
+
+        <p>
+          <strong>3. აკრძალული პროდუქცია (Prohibited Items):</strong>
+          აგრო ბაზარზე <strong>აკრძალულია</strong> შემდეგის გაყიდვა/განცხადება:
+        </p>
+        <ul>
+          <li>ცეცხლსასროლი იარაღი, საბრძოლო მასალა, ასაფეთქებელი ნივთიერებები;</li>
+          <li>ნარკოტიკული და ფსიქოტროპული ნივთიერებები, მათი პრეკურსორები;</li>
+          <li>სპეციალურ კონტროლს დაქვემდებარებული შხამ-ქიმიკატები და პესტიციდები ლიცენზიის გარეშე;</li>
+          <li>არალიცენზირებული ვეტერინარული ან ადამიანის მედიკამენტები;</li>
+          <li>ყალბი, მოპარული ან კონტრაფაქტული საქონელი;</li>
+          <li>ადამიანის ორგანოები, სექსუალური მომსახურება, აზარტული თამაშები;</li>
+          <li>ნებისმიერი სხვა საქონელი/მომსახურება, რომლის გაყიდვაც აკრძალულია საქართველოს კანონმდებლობით.</li>
+        </ul>
+
+        <p>
+          <strong>გამოწერა:</strong> ფასიანი სერვისები აქტიურდება App Store / Google Play-ის
+          მეშვეობით. გაუქმება შესაძლებელია ანგარიშის პარამეტრებიდან შესაბამის მაღაზიაში.
+        </p>
+
+        <p>
+          <strong>ანგარიშის წაშლა:</strong> მომხმარებელს შეუძლია ანგარიშისა და
+          დაკავშირებული მონაცემების წაშლის მოთხოვნა აპლიკაციიდან ან ელ-ფოსტით.
+          მარკეტფლეისის აქტიური განცხადებები წაიშლება ანგარიშთან ერთად.
+        </p>
+
+        <p style="font-size: 0.85rem; color: #6b7280">
+          წესები რეგულირდება საქართველოს კანონმდებლობით, მათ შორის
+          „პერსონალურ მონაცემთა დაცვის შესახებ“ კანონით. დავების შემთხვევაში
+          იურისდიქცია — საქართველოს სასამართლოები.
+        </p>
+
         <hr style="margin: 1.5rem 0; border: 0; border-top: 1px dashed #eee" />
 
         <h3>🇬🇧 Terms & Conditions (English)</h3>
         <p>
-          By using AgroHelper, you agree to the standard Apple Licensed
-          Application End User License Agreement (EULA). Abusive, illegal, or
-          offensive content is strictly prohibited.
+          By using AgroHelper (app and website) you agree to these Terms and to the
+          standard Apple Licensed Application EULA and applicable Google Play terms.
+          Abusive, illegal, or offensive content is prohibited.
         </p>
         <p>
-          <strong>Subscriptions:</strong> Paid services are processed via the
-          App Store. You can manage or cancel your subscription at any time
-          via your Apple ID Settings.
+          <strong>1. Intermediary disclaimer:</strong> The Agro Marketplace is an
+          <strong>information and intermediary</strong> platform only. AgroHelper is
+          <strong>not</strong> a seller, buyer, agent, or guarantor. We are
+          <strong>not liable</strong> for deals between users, product quality,
+          quantity, transport, payment, delivery, or fraud. All transactions are
+          between the parties at their own risk.
         </p>
         <p>
-          <strong>UGC Policy:</strong> User-generated content that violates
-          our terms will be removed within 24 hours, and the user will be
-          banned.
+          <strong>2. UGC &amp; reporting:</strong> Listings and photos are user-generated
+          content. Violating content may be removed within 24 hours and accounts banned.
+          Users can <strong>Report</strong> listings from the product page or by email.
         </p>
-
-        <br />
+        <p>
+          <strong>3. Prohibited items:</strong> Firearms and ammunition; narcotics;
+          restricted pesticides/chemicals without licence; unlicensed veterinary or human
+          medicines; stolen or counterfeit goods; and any other goods/services illegal under
+          the laws of Georgia.
+        </p>
+        <p>
+          <strong>Subscriptions:</strong> Paid services via App Store / Google Play; cancel
+          anytime in store account settings. <strong>Account deletion:</strong> available in-app
+          or by email; marketplace listings are removed with the account.
+        </p>
         <p style="font-size: 0.8rem; color: #6b7280">
-          Full terms align with the standard Apple Licensed Application End
-          User License Agreement:
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">View Apple
-            EULA</a>
+          Apple EULA:
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">View standard EULA</a>
         </p>
       </div>
     </div>
@@ -2266,6 +2443,8 @@
 
     let selectedCategory = "all";
     let searchTimeout = null;
+    let productGalleryImages = [];
+    let productGalleryIndex = 0;
 
     function renderCategories() {
       const container = document.getElementById("categoriesContainer");
@@ -2323,6 +2502,21 @@
           `;
       }).join('');
     }
+    function showProductGalleryImage(index) {
+      if (!productGalleryImages.length) return;
+      productGalleryIndex = (index + productGalleryImages.length) % productGalleryImages.length;
+      const mainImage = document.getElementById("productGalleryMainImage");
+      const counter = document.getElementById("productGalleryCounter");
+      if (mainImage) mainImage.src = productGalleryImages[productGalleryIndex];
+      if (counter) counter.textContent = `${productGalleryIndex + 1} / ${productGalleryImages.length}`;
+      document.querySelectorAll(".product-gallery-thumbnail").forEach((thumbnail, thumbnailIndex) => {
+        thumbnail.classList.toggle("active", thumbnailIndex === productGalleryIndex);
+      });
+    }
+
+    function changeProductGalleryImage(step) {
+      showProductGalleryImage(productGalleryIndex + step);
+    }
 
     async function renderProductPage(id) {
       const productPage = document.getElementById("productPage");
@@ -2349,18 +2543,28 @@
         }
 
         const images = item.images || [];
+        productGalleryImages = images.map(image => image.image).filter(Boolean);
+        productGalleryIndex = 0;
         document.title = `${item.title} — აგრო ბაზარი | AgroHelper`;
 
         content.innerHTML = `
             <div class="product-page-card">
-              <div style="max-height: 340px; overflow: hidden; border-radius: 18px; margin-bottom: 1.2rem; background: var(--mist);">
-                ${images.length ? `<img src="${images[0].image}" style="width:100%; height:320px; object-fit:cover;">` : '<div style="height:220px;display:flex;align-items:center;justify-content:center;color:#ccc;"><i class="fa-regular fa-image fa-3x"></i></div>'}
-              </div>
-
-              ${images.length > 1 ? `
-              <div style="display:flex; gap:8px; overflow-x:auto; margin-bottom:1.2rem; padding-bottom:4px;">
-                ${images.map(im => `<img src="${im.image}" style="width:74px; height:74px; object-fit:cover; border-radius:10px; flex-shrink:0;">`).join('')}
-              </div>` : ''}
+              ${productGalleryImages.length ? `
+              <div class="product-gallery" id="productGallery">
+                <div class="product-gallery-main" id="productGalleryMain">
+                  <img id="productGalleryMainImage" src="${productGalleryImages[0]}" alt="${item.title}">
+                  ${productGalleryImages.length > 1 ? `
+                    <button type="button" class="product-gallery-button prev" aria-label="წინა ფოტო" onclick="changeProductGalleryImage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button type="button" class="product-gallery-button next" aria-label="შემდეგი ფოტო" onclick="changeProductGalleryImage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    <span class="product-gallery-counter" id="productGalleryCounter">1 / ${productGalleryImages.length}</span>
+                  ` : ''}
+                </div>
+                ${productGalleryImages.length > 1 ? `
+                  <div class="product-gallery-thumbnails">
+                    ${productGalleryImages.map((image, imageIndex) => `<button type="button" class="product-gallery-thumbnail ${imageIndex === 0 ? 'active' : ''}" aria-label="ფოტო ${imageIndex + 1}" onclick="showProductGalleryImage(${imageIndex})"><img src="${image}" alt=""></button>`).join('')}
+                  </div>
+                ` : ''}
+              </div>` : '<div class="product-gallery-main" style="margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;color:#ccc;"><i class="fa-regular fa-image fa-3x"></i></div>'}
 
               <h1 style="font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:800; color:var(--forest);">${item.title}</h1>
               <div style="font-size:1.6rem; font-weight:900; color:var(--leaf); margin:8px 0;">
@@ -2398,8 +2602,18 @@
                   <i class="fa-regular fa-copy"></i> კოპირება
                 </button>
               </div>` : ''}
+
+              <button type="button" class="btn-report" onclick='reportListing(${item.id}, ${JSON.stringify(String(item.title || ""))})'>
+                <i class="fa-solid fa-flag"></i> საჩივარი / Report Listing
+              </button>
+              <p style="font-size:0.75rem;color:#999;margin-top:8px;">ყალბი, უკანონო ან მავნე განცხადების შემთხვევაში გამოგვიგზავნეთ საჩივარი.</p>
             </div>
           `;
+
+        // Schema.org Product JSON-LD for SEO
+        injectProductSchema(item);
+        // Dynamic OG-ish document meta for shared links (crawlers that re-fetch may still need SSR)
+        updateShareMeta(item);
       } catch (err) {
         console.error("Detail Error:", err);
         content.innerHTML = `<div class="product-page-card" style="text-align:center; padding:3rem 1.5rem; color:#888;">
@@ -2499,6 +2713,68 @@
     function closeModal(id) {
       document.getElementById(id).style.display = "none";
     }
+
+
+    function reportListing(id, title) {
+      const subject = encodeURIComponent("საჩივარი განცხადებაზე #" + id);
+      const body = encodeURIComponent(
+        "განცხადების ID: " + id + "\nსათაური: " + title + "\nბმული: " + window.location.href +
+        "\n\nაღწერეთ პრობლემა (ყალბი ინფო, აკრძალული პროდუქტი, თაღლითობა და ა.შ.):\n"
+      );
+      window.location.href = "mailto:support@agrohelper.ge?subject=" + subject + "&body=" + body;
+    }
+
+    function injectProductSchema(item) {
+      document.querySelectorAll('script[data-product-schema]').forEach(s => s.remove());
+      const img = item.images?.[0]?.image || "https://agrohelper.ge/og-image.jpg";
+      const data = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": item.title || "აგრო პროდუქტი",
+        "description": (item.description || item.title || "").slice(0, 500),
+        "image": img,
+        "sku": String(item.id || ""),
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "GEL",
+          "price": String(item.price ?? ""),
+          "availability": "https://schema.org/InStock",
+          "url": window.location.href
+        }
+      };
+      if (item.region_display) {
+        data.areaServed = item.region_display;
+      }
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.setAttribute("data-product-schema", "1");
+      s.textContent = JSON.stringify(data);
+      document.head.appendChild(s);
+    }
+
+    function updateShareMeta(item) {
+      const set = (prop, content, isName) => {
+        const sel = isName ? `meta[name="${prop}"]` : `meta[property="${prop}"]`;
+        let el = document.querySelector(sel);
+        if (!el) {
+          el = document.createElement("meta");
+          if (isName) el.setAttribute("name", prop); else el.setAttribute("property", prop);
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      };
+      const title = (item.title || "აგრო ბაზარი") + " — AgroHelper";
+      const desc = (item.description || `ფასი: ${item.price} ₾ · ${item.region_display || ""}`).slice(0, 160);
+      const img = item.images?.[0]?.image || "https://agrohelper.ge/og-image.jpg";
+      set("og:title", title);
+      set("og:description", desc);
+      set("og:image", img);
+      set("og:url", window.location.href);
+      set("twitter:title", title, true);
+      set("twitter:description", desc, true);
+      set("twitter:image", img, true);
+    }
+
 
     // Initialize Agro Market on load
     window.addEventListener("DOMContentLoaded", () => {
