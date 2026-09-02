@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="MzceSNmMuxjhDNcrOAHJOkucnNRyWrEacb5LJtW_2Q0" />
   <meta name="google-site-verification" content="DheUb071dcrbRxN5HUAfOEX5daRcXS65jhKouhSCq4Y" />
-    <title>AgroHelper - Modern Agriculture AI & აგრო ბაზარი</title>
-  <meta name="description" content="AgroHelper — აგრო AI ასისტენტი და აგრო ბაზარი. იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან საქართველოში." />
+  <title>AgroHelper - Modern Agriculture AI & აგრო ბაზარი</title>
+  <meta name="description"
+    content="AgroHelper — აგრო AI ასისტენტი და აგრო ბაზარი. იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან საქართველოში." />
   <meta property="og:title" content="AgroHelper - აგრო ბაზარი" />
   <meta property="og:description" content="იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან" />
   <meta property="og:image" content="https://agrohelper.ge/og-image.jpg" />
@@ -452,7 +453,7 @@
       font-weight: 300;
     }
 
-    
+
     .btn-report {
       display: inline-flex;
       align-items: center;
@@ -469,7 +470,10 @@
       font-family: "DM Sans", sans-serif;
       transition: background 0.2s;
     }
-    .btn-report:hover { background: #fee2e2; }
+
+    .btn-report:hover {
+      background: #fee2e2;
+    }
 
     /* ==================== აგრო ბაზარი STYLES ==================== */
     .market-section {
@@ -514,6 +518,53 @@
 
     .market-banner p {
       color: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    .modal-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8faf8;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #e2ece3;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-item:hover {
+      border-color: var(--leaf);
+      transform: translateX(2px);
+    }
+
+    .feature-item i {
+      font-size: 1.2rem;
+      color: var(--leaf);
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .feature-item div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-item strong {
+      font-size: 0.88rem;
+      color: var(--forest, #222);
+    }
+
+    .feature-item span {
+      font-size: 0.78rem;
+      color: #666;
+      margin-top: 1px;
     }
 
     .market-banner-badge {
@@ -1063,6 +1114,7 @@
         border-radius: 18px;
       }
     }
+
     .privacy-section {
       padding: 7rem 2rem;
       background: #fff;
@@ -1260,9 +1312,17 @@
       z-index: 1;
     }
 
-    .product-gallery-button:hover { background: #fff; }
-    .product-gallery-button.prev { left: 12px; }
-    .product-gallery-button.next { right: 12px; }
+    .product-gallery-button:hover {
+      background: #fff;
+    }
+
+    .product-gallery-button.prev {
+      left: 12px;
+    }
+
+    .product-gallery-button.next {
+      right: 12px;
+    }
 
     .product-gallery-counter {
       position: absolute;
@@ -1296,7 +1356,9 @@
       cursor: pointer;
     }
 
-    .product-gallery-thumbnail.active { border-color: var(--leaf); }
+    .product-gallery-thumbnail.active {
+      border-color: var(--leaf);
+    }
 
     .product-gallery-thumbnail img {
       width: 100%;
@@ -1304,6 +1366,7 @@
       object-fit: cover;
       display: block;
     }
+
     .contact-icon {
       width: 42px;
       height: 42px;
@@ -1530,111 +1593,111 @@
   <div id="mainContent">
     <!-- HERO SECTION -->
     <section id="home" class="hero">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-logo-badge">
-          <img src="Stylized plant with .png" />
-          <div class="section-label" style="
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-logo-badge">
+            <img src="Stylized plant with .png" />
+            <div class="section-label" style="
                 background: rgba(168, 224, 99, 0.15);
                 color: var(--lime);
                 border-color: rgba(168, 224, 99, 0.3);
                 margin-bottom: 0;
               ">
-            🌿 AI-Powered Agriculture
+              🌿 AI-Powered Agriculture
+            </div>
           </div>
-        </div>
-        <h1>მართე მეურნეობა <em>ხელოვნური ინტელექტით</em></h1>
-        <p>
-         AgroHelper — მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა, 
-         ამინდის პროგნოზი სოფლის მეურნეობის მეტრიკებით და პირდაპირი აგრობაზარი ფერმერებისთვის.
-         იზრუნეთ მეურნეობაზე მარტივად, პირდაპირ სმარტფონიდან.
-        </p>
+          <h1>მართე მეურნეობა <em>ხელოვნური ინტელექტით</em></h1>
+          <p>
+            AgroHelper — მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა,
+            ამინდის პროგნოზი სოფლის მეურნეობის მეტრიკებით და პირდაპირი აგრობაზარი ფერმერებისთვის.
+            იზრუნეთ მეურნეობაზე მარტივად, პირდაპირ სმარტფონიდან.
+          </p>
 
-        <style>
-          @keyframes pulseGlow {
+          <style>
+            @keyframes pulseGlow {
 
-            0%,
-            100% {
-              box-shadow: 0 0 0 0 rgba(168, 224, 99, 0);
+              0%,
+              100% {
+                box-shadow: 0 0 0 0 rgba(168, 224, 99, 0);
+              }
+
+              50% {
+                box-shadow: 0 0 20px 6px rgba(168, 224, 99, 0.35);
+              }
             }
 
-            50% {
-              box-shadow: 0 0 20px 6px rgba(168, 224, 99, 0.35);
+            @keyframes bounceDown {
+
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+
+              50% {
+                transform: translateY(5px);
+              }
             }
-          }
 
-          @keyframes bounceDown {
-
-            0%,
-            100% {
-              transform: translateY(0);
+            .store-wrapper {
+              margin-top: 28px;
+              display: flex;
+              flex-direction: column;
             }
 
-            50% {
-              transform: translateY(5px);
+            .store-cta-label {
+              background: linear-gradient(135deg,
+                  rgba(168, 224, 99, 0.2),
+                  rgba(93, 184, 122, 0.12));
+              border: 1.5px solid rgba(168, 224, 99, 0.55);
+              border-bottom: none;
+              color: #a8e063;
+              font-size: 1.05rem;
+              font-weight: 800;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              padding: 11px 20px;
+              border-radius: 14px 14px 0 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 14px;
+              animation: pulseGlow 2.2s ease-in-out infinite;
             }
-          }
 
-          .store-wrapper {
-            margin-top: 28px;
-            display: flex;
-            flex-direction: column;
-          }
+            .store-cta-arrow {
+              font-size: 1.2rem;
+              animation: bounceDown 1.4s ease-in-out infinite;
+              display: inline-block;
+            }
 
-          .store-cta-label {
-            background: linear-gradient(135deg,
-                rgba(168, 224, 99, 0.2),
-                rgba(93, 184, 122, 0.12));
-            border: 1.5px solid rgba(168, 224, 99, 0.55);
-            border-bottom: none;
-            color: #a8e063;
-            font-size: 1.05rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 11px 20px;
-            border-radius: 14px 14px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            animation: pulseGlow 2.2s ease-in-out infinite;
-          }
+            .store-buttons-row {
+              display: flex;
+              gap: 1px;
+              background: rgba(168, 224, 99, 0.2);
+              border-radius: 0 0 14px 14px;
+              overflow: hidden;
+              border: 1.5px solid rgba(168, 224, 99, 0.55);
+              border-top: none;
+            }
 
-          .store-cta-arrow {
-            font-size: 1.2rem;
-            animation: bounceDown 1.4s ease-in-out infinite;
-            display: inline-block;
-          }
+            .store-buttons-row a {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0;
+            }
+          </style>
 
-          .store-buttons-row {
-            display: flex;
-            gap: 1px;
-            background: rgba(168, 224, 99, 0.2);
-            border-radius: 0 0 14px 14px;
-            overflow: hidden;
-            border: 1.5px solid rgba(168, 224, 99, 0.55);
-            border-top: none;
-          }
-
-          .store-buttons-row a {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-          }
-        </style>
-
-        <div class="store-wrapper">
-          <div class="store-cta-label">
-            <span class="store-cta-arrow">↓</span>
-            გადმოწერეთ
-            <span class="store-cta-arrow">↓</span>
-          </div>
-          <div class="store-buttons-row">
-            <a href="https://play.google.com/store/apps/details?id=ge.agrohelper.app&pcampaignid=web_share"
-              target="_blank" style="
+          <div class="store-wrapper">
+            <div class="store-cta-label">
+              <span class="store-cta-arrow">↓</span>
+              გადმოწერეთ
+              <span class="store-cta-arrow">↓</span>
+            </div>
+            <div class="store-buttons-row">
+              <a href="https://play.google.com/store/apps/details?id=ge.agrohelper.app&pcampaignid=web_share"
+                target="_blank" style="
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -1645,30 +1708,30 @@
                   transition: background 0.2s;
                   border-right: 1px solid rgba(255, 255, 255, 0.08);
                 " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
-              <svg viewBox="0 0 512 512" width="22" height="22" style="margin-right: 10px">
-                <path fill="#4285F4" d="M46.8 441.6c-4.8-5.2-7.8-12.2-7.8-20.2V90.6c0-8 3-15 7.8-20.2L250.6 256z" />
-                <path fill="#EA4335"
-                  d="M364.6 145.9L106.5 6.4c-5.1-2.8-11-4.4-17.1-4.4-11.2 0-21.1 5.6-27.1 14.1L250.6 256z" />
-                <path fill="#FBBC04"
-                  d="M465.3 227.3l-100.7-55.7-114 84.4 114 84.4 100.7-55.7c16.3-9 27.7-26.1 27.7-48.7s-11.4-39.7-27.7-48.7z" />
-                <path fill="#34A853"
-                  d="M62.3 495.9c6 8.5 15.9 14.1 27.1 14.1 6.1 0 12-1.6 17.1-4.4l258.1-139.5L250.6 256z" />
-              </svg>
-              <div style="
+                <svg viewBox="0 0 512 512" width="22" height="22" style="margin-right: 10px">
+                  <path fill="#4285F4" d="M46.8 441.6c-4.8-5.2-7.8-12.2-7.8-20.2V90.6c0-8 3-15 7.8-20.2L250.6 256z" />
+                  <path fill="#EA4335"
+                    d="M364.6 145.9L106.5 6.4c-5.1-2.8-11-4.4-17.1-4.4-11.2 0-21.1 5.6-27.1 14.1L250.6 256z" />
+                  <path fill="#FBBC04"
+                    d="M465.3 227.3l-100.7-55.7-114 84.4 114 84.4 100.7-55.7c16.3-9 27.7-26.1 27.7-48.7s-11.4-39.7-27.7-48.7z" />
+                  <path fill="#34A853"
+                    d="M62.3 495.9c6 8.5 15.9 14.1 27.1 14.1 6.1 0 12-1.6 17.1-4.4l258.1-139.5L250.6 256z" />
+                </svg>
+                <div style="
                     display: flex;
                     flex-direction: column;
                     line-height: 1.1;
                   ">
-                <span style="
+                  <span style="
                       font-size: 9px;
                       opacity: 0.8;
                       text-transform: uppercase;
                     ">Get it on</span>
-                <span style="font-size: 15px; font-weight: 700">Google Play</span>
-              </div>
-            </a>
+                  <span style="font-size: 15px; font-weight: 700">Google Play</span>
+                </div>
+              </a>
 
-            <a href="https://apps.apple.com/us/app/agrohelper/id6761626943" target="_blank" style="
+              <a href="https://apps.apple.com/us/app/agrohelper/id6761626943" target="_blank" style="
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -1678,629 +1741,631 @@
                   text-decoration: none;
                   transition: background 0.2s;
                 " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
-              <svg viewBox="0 0 384 512" width="20" height="20" style="margin-right: 10px; fill: white">
-                <path
-                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-              </svg>
-              <div style="
+                <svg viewBox="0 0 384 512" width="20" height="20" style="margin-right: 10px; fill: white">
+                  <path
+                    d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                </svg>
+                <div style="
                     display: flex;
                     flex-direction: column;
                     line-height: 1.1;
                   ">
-                <span style="
+                  <span style="
                       font-size: 9px;
                       opacity: 0.8;
                       text-transform: uppercase;
                     ">Download on the</span>
-                <span style="font-size: 15px; font-weight: 700">App Store</span>
+                  <span style="font-size: 15px; font-weight: 700">App Store</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card fc-green">
+            <div class="icon">🪴</div>
+            <h4>AI სკანირება</h4>
+            <p>დაავადებების მყისიერი იდენტიფიკაცია</p>
+          </div>
+          <div class="hero-card">
+            <div class="icon">☀️</div>
+            <h4>ამინდი &amp; ნიადაგი</h4>
+            <p>რეალ-ტაიმ მონაცემები თქვენი მეურნეობისთვის</p>
+          </div>
+          <div class="hero-card">
+            <div class="icon">💧</div>
+            <h4>ჭკვიანი მორწყვა</h4>
+            <p>AI-ით ოპტიმიზებული განრიგი</p>
+          </div>
+          <div class="hero-card">
+            <div class="icon">🌾</div>
+            <h4>აგრო ბაზარი & სიახლეები</h4>
+            <p>პროდუქციის ყიდვა-გაყიდვა და ყოველდღიური სიახლეები</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TECH STRIP -->
+    <div class="tech-strip">
+      <span class="tech-badge">🐍 Django REST</span>
+      <span class="tech-badge">🐘 PostgreSQL</span>
+      <span class="tech-badge">🍃 MongoDB Atlas</span>
+      <span class="tech-badge">🔍 Vector Search</span>
+      <span class="tech-badge">🤖 AI / ML</span>
+      <span class="tech-badge">⚛️ React Native</span>
+      <span class="tech-badge">🔔 Expo Notifications</span>
+    </div>
+    <!-- ==================== აგრო ბაზარი SECTION ==================== -->
+    <section id="market" class="market-section">
+      <div class="market-banner">
+        <div class="market-banner-badge">🌾 ცოცხალი პლატფორმა · პირდაპირ ფერმერებისგან</div>
+        <h2 class="section-title" style="margin:0.6rem 0 0.7rem;">აგრო ბაზარი</h2>
+        <p style="color:#6b7280; font-size:1rem; font-weight:300; max-width:560px;">
+          იყიდეთ და გაყიდეთ პროდუქცია, ნერგები, პირუტყვი და ტექნიკა — შუამავლების გარეშე, პირდაპირ ფერმერთან
+          დარეკვით ან WhatsApp-ით.
+        </p>
+        <div class="market-perks">
+          <div class="market-perk"><i class="fa-solid fa-hand-holding-dollar"></i> მარტივი ყიდვა-გაყიდვა</div>
+          <div class="market-perk"><i class="fa-solid fa-bolt"></i> პირდაპირი კონტაქტი ფერმერთან</div>
+          <div class="market-perk"><i class="fa-solid fa-map-location-dot"></i>პროდუქტის ადგილმდებარეობის განსაზღვრა.
+          </div>
+        </div>
+        <button class="btn-add-listing btn-add-listing-lg" onclick="openAppModal('add')">
+          <i class="fa-solid fa-plus"></i> განცხადების უფასოდ დამატება
+        </button>
+      </div>
+
+      <div class="market-controls">
+        <div class="market-search-bar">
+          <i class="fa-solid fa-magnifying-glass" style="color:#888;"></i>
+          <input type="text" id="searchInput" placeholder="მოძებნეთ პროდუქტი, ტექნიკა, ნერგები..."
+            oninput="handleSearch()">
+        </div>
+        <div class="market-categories" id="categoriesContainer"></div>
+      </div>
+
+      <div class="market-grid" id="listingsGrid"></div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+      <div class="features">
+        <div class="section-label">ფუნქციები</div>
+        <h2 class="section-title">AgroHelper-ის შესაძლებლობები</h2>
+        <p class="section-sub">
+          ინსტრუმენტები, რომლებიც თქვენს ბაღს უფრო პროდუქტიულს გახდის.
+        </p>
+        <div class="features-grid">
+          <div class="feature-card fc-green">
+            <div class="feature-icon fi-green">🪴</div>
+            <h3>ჩემი ბაღი</h3>
+            <p>
+              შექმენით მცენარეების ციფრული ბიბლიოთეკა. AI გიგენერირებთ "მოვლის
+              პასპორტს".
+            </p>
+          </div>
+          <div class="feature-card fc-blue">
+            <div class="feature-icon fi-blue">💧</div>
+            <h3>ჭკვიანი მორწყვა</h3>
+            <p>
+              AI განსაზღვრავს მორწყვის ოპტიმალურ განრიგს მცენარის ტიპისა და
+              ამინდის მონაცემების საფუძველზე.
+            </p>
+          </div>
+          <div class="feature-card fc-purple">
+            <div class="feature-icon fi-purple">🔍</div>
+            <h3>AI სკანირება</h3>
+            <p>
+              გადაუღეთ ფოტო მცენარეს — AI საშუალებით მიიღეთ მყისიერი დიაგნოზი და
+              რჩევები.
+            </p>
+          </div>
+          <div class="feature-card fc-yellow">
+            <div class="feature-icon fi-yellow">📰</div>
+            <h3>აგრო ნიუსები</h3>
+            <p>
+              ყოველდღიური აგრო სიახლეები საქართველოს და მსოფლიის მასშტაბით,
+              პირდაპირ თქვენს ტელეფონში.
+            </p>
+          </div>
+          <div class="feature-card fc-orange">
+            <div class="feature-icon fi-orange">☀️</div>
+            <h3>განათების საზომი</h3>
+            <p>
+              ტელეფონის სენსორებით გაზომეთ სინათლის ინტენსივობა და იპოვეთ
+              საუკეთესო ადგილი ბაღში.
+            </p>
+          </div>
+          <div class="feature-card fc-orange">
+            <div class="feature-icon fi-orange">🤖</div>
+            <h3>AI ასისტენტი</h3>
+            <p>
+              ნებისმიერ კითხვაზე პასუხი მცენარეების მოვლის შესახებ, 24/7
+              მხარდაჭერა და პერსონალური რჩევები.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- PRIVACY SECTION -->
+    <section id="privacy" class="privacy-section">
+      <div class="privacy-inner">
+        <div class="section-label">Legal</div>
+        <h2 class="section-title">Privacy Policy</h2>
+
+        <div class="lang-tabs">
+          <button class="lang-tab active" onclick="switchLang('ka')">
+            🇬🇪 ქართული
+          </button>
+          <button class="lang-tab" onclick="switchLang('en')">
+            🇬🇧 English
+          </button>
+        </div>
+
+        <div class="privacy-meta">
+          <span>📅 ბოლო განახლება: აგვისტო 2026</span>
+          <span>🌍 GDPR Compliant</span>
+          <span>🔒 პერსონალურ მონაცემთა დაცვის შესახებ კანონი</span>
+        </div>
+
+        <div id="lang-ka">
+          <div style="margin-bottom: 1.5rem">
+            <span class="gdpr-badge">✓ GDPR</span>
+            <span class="gdpr-badge">✓ App Store & Play Store Policy</span>
+            <span class="gdpr-badge">✓ პერსონალურ მონაცემთა დაცვის სამსახური</span>
+          </div>
+
+          <p style="
+              color: #6b7280;
+              font-size: 0.93rem;
+              line-height: 1.8;
+              margin-bottom: 2.5rem;
+            ">
+            ეს პოლიტიკა განმარტავს, თუ როგორ ამუშავებს
+            <strong>AgroHelper</strong> თქვენს მონაცემებს. ჩვენი მიზანია
+            მაქსიმალური გამჭვირვალობა და თქვენი კონფიდენციალურობის დაცვა.
+          </p>
+
+          <div class="policy-block">
+            <h3>📋 1. მონაცემთა დამმუშავებელი</h3>
+            <p>
+              <strong>AgroHelper</strong> — ინტელექტუალური აგრო-პლატფორმა.<br />
+              საკონტაქტო ელ-ფოსტა:
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="630204110c0b060f1306114d0c05050a000a020f23040e020a0f4d000c0e">[email&#160;protected]</a></strong>
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #4f83cc">
+            <h3>🗄️ 2. რა მონაცემებს ვაგროვებთ</h3>
+            <p>
+              <strong>2.1. თქვენ მიერ მოწოდებული:</strong> სახელი, ელ-ფოსტა,
+              მცენარეების ფოტოები (დიაგნოსტიკისთვის) და თქვენი ბაღის ჩანაწერები.
+            </p>
+            <p>
+              <strong>2.1.1. აგრო ბაზარი (საჯარო მონაცემები):</strong>
+              მარკეტფლეისზე განცხადების გამოქვეყნებისას თქვენ მიერ მითითებული
+              <strong>ტელეფონის ნომერი</strong>, <strong>სახელი / გამყიდველის სახელი</strong>,
+              <strong>რეგიონი</strong>, პროდუქტის აღწერა და ფოტოები ხდება
+              <strong>საჯაროდ ხილვადი</strong> პლატფორმის ნებისმიერი ვიზიტორისთვის
+              (აპლიკაცია და ვებგვერდი). განცხადების გამოქვეყნებით თქვენ ეთანხმებით
+              ამ მონაცემების საჯარო გამოქვეყნებას. ტელეფონი განკუთვნილია მხოლოდ
+              გარიგების კომუნიკაციისთვის და არ უნდა გამოიყენებოდეს სპამისთვის.
+            </p>
+            <p>
+              <strong>2.2. ავტომატურად შეგროვებული:</strong> მოწყობილობის ტიპი,
+              ოპერაციული სისტემა, ენა და IP მისამართი უსაფრთხოებისთვის.
+            </p>
+            <p>
+              <strong>2.3. სენსორები და ლოკაცია:</strong> GPS (ამინდის
+              პროგნოზისთვის) და სინათლის სენსორი — გამოიყენება მხოლოდ თქვენი
+              ნებართვის შემდეგ.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #e11d48">
+            <h3>🌿 3. ჯანმრთელობის მონაცემები (Health Data)</h3>
+            <p>
+              AgroHelper-ი აგროვებს და ამუშავებს მონაცემებს, რომლებიც
+              კლასიფიცირდება როგორც "Health Data" მხოლოდ სოფლის მეურნეობის
+              კონტექსტში:
+            </p>
+            <ul>
+              <li>
+                <strong>მცენარეთა ჯანმრთელობა:</strong> თქვენ მიერ ატვირთული
+                ფოტოები გამოიყენება AI-ს მიერ მცენარეთა დაავადებების
+                იდენტიფიცირებისთვის.
+              </li>
+              <li>
+                <strong>გარემო პირობები:</strong> GPS და სენსორების მონაცემები
+                გამოიყენება ნიადაგის და კულტურების მდგომარეობის შესაფასებლად.
+              </li>
+            </ul>
+            <p>
+              ჩვენ <strong>არ ვაგროვებთ</strong> ადამიანის ჯანმრთელობასთან
+              დაკავშირებულ ინფორმაციას. მონაცემები
+              <strong>არ გამოიყენება</strong> სარეკლამო მიზნებისთვის და
+              <strong>არ გადაეცემა</strong> მესამე პირებს.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #8b5cf6">
+            <h3>⚙️ 4. გამოყენების მიზნები</h3>
+            <ul>
+              <li>სერვისის ფუნქციონირება და ანგარიშის მართვა.</li>
+              <li>AI დიაგნოსტიკა და აგრო-რჩევების პერსონალიზაცია.</li>
+              <li>უსაფრთხოება და თაღლითობის პრევენცია.</li>
+            </ul>
+            <p>
+              ჩვენ <strong>არ ვყიდით</strong> თქვენს მონაცემებს და
+              <strong>არ ვიყენებთ</strong> თქვენს ფოტოებს AI-ს მოსამზადებლად
+              თქვენი დასტურის გარეშე.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #f59e0b">
+            <h3>💳 5. გადახდები და გამოწერები</h3>
+            <p>
+              ტრანზაქციები სრულდება <strong>Google Play</strong> ან
+              <strong>App Store</strong>-ის მეშვეობით. ფასიანი პაკეტის შეძენისას
+              გადახდა ხდება თქვენი შესაბამისი ანგარიშიდან. გამოწერის მართვა და
+              გაუქმება შეგიძლიათ ნებისმიერ დროს თქვენი მოწყობილობის
+              პარამეტრებიდან (Settings). ჩვენ არ გვაქვს წვდომა თქვენს საბანკო
+              ბარათის მონაცემებზე.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #10b981">
+            <h3>🔒 6. უსაფრთხოება და შენახვა</h3>
+            <p>
+              მონაცემები ინახება ევროპის ტერიტორიაზე მდებარე დაცულ სერვერებზე.
+              ვიყენებთ ინდუსტრიაში მიღებულ დაშიფვრის სტანდარტებს (SSL/TLS).
+              მონაცემები ინახება ანგარიშის წაშლიდან 90 დღის განმავლობაში
+              (სარეზერვო ასლების ციკლი).
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #f43f5e">
+            <h3>👤 7. თქვენი უფლებები და ანგარიშის წაშლა</h3>
+            <p>
+              თქვენ გაქვთ უფლება მოითხოვოთ თქვენი მონაცების ასლი, გასწორება ან
+              <strong>სრული წაშლა</strong>.
+            </p>
+            <div class="highlight-box">
+              <strong>⚡ ანგარიშის წაშლა:</strong> <br />
+              თქვენ შეგიძლიათ წაშალოთ თქვენი ანგარიში პირდაპირ
+              <strong>AgroHelper</strong> აპლიკაციის პარამეტრებიდან (Settings >
+              Delete Account). ასევე, შეგიძლიათ მოგვწეროთ
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="402127322f28252c3025326e2f2626292329212c00272d21292c6e232f2d">[email&#160;protected]</a></strong>-ზე.
+              თქვენი ანგარიში და მასთან დაკავშირებული ინფორმაცია სრულად
+              წაიშლება 48 საათის განმავლობაში.
+            </div>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #a8e063">
+            <h3>⚠️ 8. მომხმარებლის მიერ გენერირებული კონტენტი (UGC)</h3>
+            <p>
+              აპლიკაციაში აკრძალულია შეურაცხმყოფელი, უკანონო ან დისკრიმინაციული
+              კონტენტის განთავსება. ჩვენ ვიტოვებთ უფლებას დაუყოვნებლივ დავბლოკოთ
+              მომხმარებელი, რომელიც დაარღვევს საზოგადოებრივ წესებს.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #06b6d4">
+            <h3>⚖️ 9. საჩივრები</h3>
+            <p>
+              კითხვების შემთხვევაში მოგვწერეთ პირდაპირ. ასევე, შეგიძლიათ
+              მიმართოთ პერსონალურ მონაცემთა დაცვის სამსახურს (pdp.ge).
+            </p>
+          </div>
+        </div>
+
+        <div id="lang-en" style="display: none">
+          <div style="margin-bottom: 1.5rem">
+            <span class="gdpr-badge">✓ GDPR</span>
+            <span class="gdpr-badge">✓ Apple & Google Store Policies</span>
+          </div>
+
+          <p style="
+              color: #6b7280;
+              font-size: 0.93rem;
+              line-height: 1.8;
+              margin-bottom: 2.5rem;
+            ">
+            This policy outlines how <strong>AgroHelper</strong> manages your
+            data. We are committed to protecting your privacy and being
+            transparent about our practices.
+          </p>
+
+          <div class="policy-block">
+            <h3>📋 1. Data Controller</h3>
+            <p>
+              <strong>AgroHelper</strong> — AI Agriculture Platform.<br />
+              Contact:
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="47262035282f222b372235692821212e242e262b07202a262e2b6924282a">[email&#160;protected]</a></strong>
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #e11d48">
+            <h3>🌿 2. Health Data Disclosure</h3>
+            <p>
+              AgroHelper collects data classified as "Health Data" strictly
+              within an agricultural and botanical context:
+            </p>
+            <ul>
+              <li>
+                <strong>Plant & Crop Health:</strong> Photos uploaded by users
+                are processed by our AI models to diagnose plant diseases and
+                deficiencies.
+              </li>
+              <li>
+                <strong>Environmental Health:</strong> GPS and sensor data are
+                analyzed to assess soil quality and environmental conditions for
+                optimal crop growth.
+              </li>
+            </ul>
+            <p>
+              We <strong>do not collect</strong> personal human health
+              information. This data is <strong>never sold</strong> to third
+              parties or used for targeted advertising.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #4f83cc">
+            <h3>🗄️ 3. Data Collection</h3>
+            <p>
+              <strong>3.1. Provided by you:</strong> Name, email, plant photos
+              (for diagnosis), and garden notes.
+            </p>
+            <p>
+              <strong>3.2. Automatically collected:</strong> Device info, OS
+              version, and IP address for security.
+            </p>
+            <p>
+              <strong>3.3. Sensors:</strong> GPS and light sensor data, used
+              only with your explicit consent.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #8b5cf6">
+            <h3>⚙️ 4. Usage Purposes</h3>
+            <ul>
+              <li>Providing core app features and account management.</li>
+              <li>AI diagnostics and personalized agricultural advice.</li>
+              <li>Security monitoring and fraud prevention.</li>
+            </ul>
+            <p>
+              We <strong>do not sell</strong> your data. Photos are not used for
+              training purposes without your consent.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #f59e0b">
+            <h3>💳 5. Payments & Subscriptions</h3>
+            <p>
+              All payments are processed via <strong>Google Play</strong> or
+              <strong>Apple App Store</strong>. Subscriptions auto-renew unless
+              canceled 24 hours before the end of the current period. Manage or
+              cancel subscriptions anytime in your device Account Settings.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #10b981">
+            <h3>🔒 6. Security & Retention</h3>
+            <p>
+              Data is stored on secure European servers using industry-standard
+              encryption. Personal data is retained for the lifetime of the
+              account plus 90 days for backup cycles.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #f43f5e">
+            <h3>👤 7. Account Deletion & Rights</h3>
+            <p>
+              You have the right to access, correct, or
+              <strong>delete</strong> your data at any time.
+            </p>
+            <div class="highlight-box">
+              <strong>⚡ How to Delete Account:</strong><br />
+              You can initiate account deletion directly within the
+              <strong>AgroHelper</strong> app (Settings > Delete Account).
+              Alternatively, contact
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="0b6a6c7964636e677b6e7925646d6d6268626a674b6c666a626725686466">[email&#160;protected]</a></strong>.
+              Your data will be permanently removed within 48 hours.
+            </div>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #a8e063">
+            <h3>⚠️ 8. User Generated Content (UGC)</h3>
+            <p>
+              Abusive, illegal, or discriminatory content is strictly
+              prohibited. We implement moderation tools and reserve the right to
+              ban users who violate community guidelines.
+            </p>
+          </div>
+
+          <div class="policy-block" style="border-left-color: #06b6d4">
+            <h3>⚖️ 9. Contact</h3>
+            <p>
+              For any privacy concerns, reach us at
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="c8a9afbaa7a0ada4b8adbae6a7aeaea1aba1a9a488afa5a9a1a4e6aba7a5">[email&#160;protected]</a></strong>.
+              You also have the right to lodge a complaint with your local
+              Data Protection Authority.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMS SECTION -->
+    <section id="terms" class="privacy-section" style="background: white; border-top: 1px solid #e5e7eb">
+      <div class="privacy-inner">
+        <div class="section-label">Legal</div>
+        <h2 class="section-title">Terms of Service (EULA)</h2>
+
+        <div class="policy-block">
+          <h3>🇬🇪 გამოყენების წესები და პირობები (EULA)</h3>
+          <p>
+            AgroHelper-ის (აპლიკაცია და ვებგვერდი) გამოყენებით თქვენ ეთანხმებით
+            წინამდებარე წესებსა და პირობებს, აგრეთვე Apple-ის სტანდარტულ
+            სამომხმარებლო შეთანხმებას (EULA) და Google Play-ის შესაბამის პირობებს.
+            აპლიკაციაში აკრძალულია არასათანადო, შეურაცხმყოფელი ან უკანონო
+            კონტენტის განთავსება.
+          </p>
+
+          <p>
+            <strong>1. საინფორმაციო / საშუამავლო პლატფორმა (Intermediary Disclaimer):</strong>
+            აგრო ბაზარი (Marketplace) წარმოადგენს მხოლოდ <strong>საინფორმაციო და
+              საშუამავლო</strong> პლატფორმას, სადაც მომხმარებლებს შეუძლიათ განცხადებების
+            განთავსება და ერთმანეთთან დაკავშირება. AgroHelper <strong>არ არის</strong>
+            გამყიდველი, მყიდველი, აგენტი ან გარანტი. ჩვენ <strong>არ ვიღებთ
+              პასუხისმგებლობას</strong> მყიდველსა და გამყიდველს შორის გარიგებაზე,
+            პროდუქციის ხარისხზე, რაოდენობაზე, ტრანსპორტირებაზე, გადახდაზე,
+            მიწოდებაზე ან შესაძლო თაღლითობაზე. ნებისმიერი გარიგება ხორციელდება
+            მხარეებს შორის პირდაპირ, მათი რისკითა და პასუხისმგებლობით. რეკომენდებულია
+            პირადი შემოწმება და უსაფრთხო გადახდის მეთოდების გამოყენება.
+          </p>
+
+          <p>
+            <strong>2. მომხმარებლის კონტენტი (UGC) და საჩივარი:</strong>
+            განცხადებები, ფოტოები, აღწერები და საკონტაქტო მონაცემები წარმოადგენს
+            მომხმარებლის მიერ შექმნილ კონტენტს (UGC). წესების დამრღვევი კონტენტი
+            შეიძლება წაიშალოს 24 საათში, ხოლო ანგარიში — დაიბლოკოს. ნებისმიერ
+            მომხმარებელს შეუძლია ყალბი, მავნე ან უკანონო განცხადების
+            <strong>საჩივარი / Report</strong> პროდუქტის გვერდიდან ან ელ-ფოსტით
+            (support). სერიოზული დარღვევის შემთხვევაში შეგვიძლია თანამშრომლობა
+            უფლებამოსილ ორგანოებთან საქართველოს კანონმდებლობის შესაბამისად.
+          </p>
+
+          <p>
+            <strong>3. აკრძალული პროდუქცია (Prohibited Items):</strong>
+            აგრო ბაზარზე <strong>აკრძალულია</strong> შემდეგის გაყიდვა/განცხადება:
+          </p>
+          <ul>
+            <li>ცეცხლსასროლი იარაღი, საბრძოლო მასალა, ასაფეთქებელი ნივთიერებები;</li>
+            <li>ნარკოტიკული და ფსიქოტროპული ნივთიერებები, მათი პრეკურსორები;</li>
+            <li>სპეციალურ კონტროლს დაქვემდებარებული შხამ-ქიმიკატები და პესტიციდები ლიცენზიის გარეშე;</li>
+            <li>არალიცენზირებული ვეტერინარული ან ადამიანის მედიკამენტები;</li>
+            <li>ყალბი, მოპარული ან კონტრაფაქტული საქონელი;</li>
+            <li>ადამიანის ორგანოები, სექსუალური მომსახურება, აზარტული თამაშები;</li>
+            <li>ნებისმიერი სხვა საქონელი/მომსახურება, რომლის გაყიდვაც აკრძალულია საქართველოს კანონმდებლობით.</li>
+          </ul>
+
+          <p>
+            <strong>გამოწერა:</strong> ფასიანი სერვისები აქტიურდება App Store / Google Play-ის
+            მეშვეობით. გაუქმება შესაძლებელია ანგარიშის პარამეტრებიდან შესაბამის მაღაზიაში.
+          </p>
+
+          <p>
+            <strong>ანგარიშის წაშლა:</strong> მომხმარებელს შეუძლია ანგარიშისა და
+            დაკავშირებული მონაცემების წაშლის მოთხოვნა აპლიკაციიდან ან ელ-ფოსტით.
+            მარკეტფლეისის აქტიური განცხადებები წაიშლება ანგარიშთან ერთად.
+          </p>
+
+          <p style="font-size: 0.85rem; color: #6b7280">
+            წესები რეგულირდება საქართველოს კანონმდებლობით, მათ შორის
+            „პერსონალურ მონაცემთა დაცვის შესახებ“ კანონით. დავების შემთხვევაში
+            იურისდიქცია — საქართველოს სასამართლოები.
+          </p>
+
+          <hr style="margin: 1.5rem 0; border: 0; border-top: 1px dashed #eee" />
+
+          <h3>🇬🇧 Terms & Conditions (English)</h3>
+          <p>
+            By using AgroHelper (app and website) you agree to these Terms and to the
+            standard Apple Licensed Application EULA and applicable Google Play terms.
+            Abusive, illegal, or offensive content is prohibited.
+          </p>
+          <p>
+            <strong>1. Intermediary disclaimer:</strong> The Agro Marketplace is an
+            <strong>information and intermediary</strong> platform only. AgroHelper is
+            <strong>not</strong> a seller, buyer, agent, or guarantor. We are
+            <strong>not liable</strong> for deals between users, product quality,
+            quantity, transport, payment, delivery, or fraud. All transactions are
+            between the parties at their own risk.
+          </p>
+          <p>
+            <strong>2. UGC &amp; reporting:</strong> Listings and photos are user-generated
+            content. Violating content may be removed within 24 hours and accounts banned.
+            Users can <strong>Report</strong> listings from the product page or by email.
+          </p>
+          <p>
+            <strong>3. Prohibited items:</strong> Firearms and ammunition; narcotics;
+            restricted pesticides/chemicals without licence; unlicensed veterinary or human
+            medicines; stolen or counterfeit goods; and any other goods/services illegal under
+            the laws of Georgia.
+          </p>
+          <p>
+            <strong>Subscriptions:</strong> Paid services via App Store / Google Play; cancel
+            anytime in store account settings. <strong>Account deletion:</strong> available in-app
+            or by email; marketplace listings are removed with the account.
+          </p>
+          <p style="font-size: 0.8rem; color: #6b7280">
+            Apple EULA:
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">View standard
+              EULA</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="contact-section">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="section-label">კონტაქტი</div>
+            <h2>დაგვიკავშირდით</h2>
+            <p>
+              გაქვთ იდეა, შემოთავაზება ან გჭირდებათ დახმარება? ჩვენი გუნდი
+              მზადაა.
+            </p>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
               </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-card fc-green">
-          <div class="icon">🪴</div>
-          <h4>AI სკანირება</h4>
-          <p>დაავადებების მყისიერი იდენტიფიკაცია</p>
-        </div>
-        <div class="hero-card">
-          <div class="icon">☀️</div>
-          <h4>ამინდი &amp; ნიადაგი</h4>
-          <p>რეალ-ტაიმ მონაცემები თქვენი მეურნეობისთვის</p>
-        </div>
-        <div class="hero-card">
-          <div class="icon">💧</div>
-          <h4>ჭკვიანი მორწყვა</h4>
-          <p>AI-ით ოპტიმიზებული განრიგი</p>
-        </div>
-        <div class="hero-card">
-          <div class="icon">🌾</div>
-          <h4>აგრო ბაზარი & სიახლეები</h4>
-          <p>პროდუქციის ყიდვა-გაყიდვა და ყოველდღიური სიახლეები</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- TECH STRIP -->
-  <div class="tech-strip">
-    <span class="tech-badge">🐍 Django REST</span>
-    <span class="tech-badge">🐘 PostgreSQL</span>
-    <span class="tech-badge">🍃 MongoDB Atlas</span>
-    <span class="tech-badge">🔍 Vector Search</span>
-    <span class="tech-badge">🤖 AI / ML</span>
-    <span class="tech-badge">⚛️ React Native</span>
-    <span class="tech-badge">🔔 Expo Notifications</span>
-  </div>
-  <!-- ==================== აგრო ბაზარი SECTION ==================== -->
-  <section id="market" class="market-section">
-    <div class="market-banner">
-      <div class="market-banner-badge">🌾 ცოცხალი პლატფორმა · პირდაპირ ფერმერებისგან</div>
-      <h2 class="section-title" style="margin:0.6rem 0 0.7rem;">აგრო ბაზარი</h2>
-      <p style="color:#6b7280; font-size:1rem; font-weight:300; max-width:560px;">
-        იყიდეთ და გაყიდეთ პროდუქცია, ნერგები, პირუტყვი და ტექნიკა — შუამავლების გარეშე, პირდაპირ ფერმერთან
-        დარეკვით ან WhatsApp-ით.
-      </p>
-      <div class="market-perks">
-        <div class="market-perk"><i class="fa-solid fa-hand-holding-dollar"></i> მარტივი ყიდვა-გაყიდვა</div>
-        <div class="market-perk"><i class="fa-solid fa-bolt"></i> პირდაპირი კონტაქტი ფერმერთან</div>
-        <div class="market-perk"><i class="fa-solid fa-map-location-dot"></i>პროდუქტის ადგილმდებარეობის განსაზღვრა. </div>
-      </div>
-      <button class="btn-add-listing btn-add-listing-lg" onclick="openAppModal('add')">
-        <i class="fa-solid fa-plus"></i> განცხადების უფასოდ დამატება
-      </button>
-    </div>
-
-    <div class="market-controls">
-      <div class="market-search-bar">
-        <i class="fa-solid fa-magnifying-glass" style="color:#888;"></i>
-        <input type="text" id="searchInput" placeholder="მოძებნეთ პროდუქტი, ტექნიკა, ნერგები..."
-          oninput="handleSearch()">
-      </div>
-      <div class="market-categories" id="categoriesContainer"></div>
-    </div>
-
-    <div class="market-grid" id="listingsGrid"></div>
-  </section>
-
-  <!-- FEATURES SECTION -->
-  <section id="features">
-    <div class="features">
-      <div class="section-label">ფუნქციები</div>
-      <h2 class="section-title">AgroHelper-ის შესაძლებლობები</h2>
-      <p class="section-sub">
-        ინსტრუმენტები, რომლებიც თქვენს ბაღს უფრო პროდუქტიულს გახდის.
-      </p>
-      <div class="features-grid">
-        <div class="feature-card fc-green">
-          <div class="feature-icon fi-green">🪴</div>
-          <h3>ჩემი ბაღი</h3>
-          <p>
-            შექმენით მცენარეების ციფრული ბიბლიოთეკა. AI გიგენერირებთ "მოვლის
-            პასპორტს".
-          </p>
-        </div>
-        <div class="feature-card fc-blue">
-          <div class="feature-icon fi-blue">💧</div>
-          <h3>ჭკვიანი მორწყვა</h3>
-          <p>
-            AI განსაზღვრავს მორწყვის ოპტიმალურ განრიგს მცენარის ტიპისა და
-            ამინდის მონაცემების საფუძველზე.
-          </p>
-        </div>
-        <div class="feature-card fc-purple">
-          <div class="feature-icon fi-purple">🔍</div>
-          <h3>AI სკანირება</h3>
-          <p>
-            გადაუღეთ ფოტო მცენარეს — AI საშუალებით მიიღეთ მყისიერი დიაგნოზი და
-            რჩევები.
-          </p>
-        </div>
-        <div class="feature-card fc-yellow">
-          <div class="feature-icon fi-yellow">📰</div>
-          <h3>აგრო ნიუსები</h3>
-          <p>
-            ყოველდღიური აგრო სიახლეები საქართველოს და მსოფლიის მასშტაბით,
-            პირდაპირ თქვენს ტელეფონში.
-          </p>
-        </div>
-        <div class="feature-card fc-orange">
-          <div class="feature-icon fi-orange">☀️</div>
-          <h3>განათების საზომი</h3>
-          <p>
-            ტელეფონის სენსორებით გაზომეთ სინათლის ინტენსივობა და იპოვეთ
-            საუკეთესო ადგილი ბაღში.
-          </p>
-        </div>
-        <div class="feature-card fc-orange">
-          <div class="feature-icon fi-orange">🤖</div>
-          <h3>AI ასისტენტი</h3>
-          <p>
-            ნებისმიერ კითხვაზე პასუხი მცენარეების მოვლის შესახებ, 24/7
-            მხარდაჭერა და პერსონალური რჩევები.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- PRIVACY SECTION -->
-  <section id="privacy" class="privacy-section">
-    <div class="privacy-inner">
-      <div class="section-label">Legal</div>
-      <h2 class="section-title">Privacy Policy</h2>
-
-      <div class="lang-tabs">
-        <button class="lang-tab active" onclick="switchLang('ka')">
-          🇬🇪 ქართული
-        </button>
-        <button class="lang-tab" onclick="switchLang('en')">
-          🇬🇧 English
-        </button>
-      </div>
-
-      <div class="privacy-meta">
-        <span>📅 ბოლო განახლება: აგვისტო 2026</span>
-        <span>🌍 GDPR Compliant</span>
-        <span>🔒 პერსონალურ მონაცემთა დაცვის შესახებ კანონი</span>
-      </div>
-
-      <div id="lang-ka">
-        <div style="margin-bottom: 1.5rem">
-          <span class="gdpr-badge">✓ GDPR</span>
-          <span class="gdpr-badge">✓ App Store & Play Store Policy</span>
-          <span class="gdpr-badge">✓ პერსონალურ მონაცემთა დაცვის სამსახური</span>
-        </div>
-
-        <p style="
-              color: #6b7280;
-              font-size: 0.93rem;
-              line-height: 1.8;
-              margin-bottom: 2.5rem;
-            ">
-          ეს პოლიტიკა განმარტავს, თუ როგორ ამუშავებს
-          <strong>AgroHelper</strong> თქვენს მონაცემებს. ჩვენი მიზანია
-          მაქსიმალური გამჭვირვალობა და თქვენი კონფიდენციალურობის დაცვა.
-        </p>
-
-        <div class="policy-block">
-          <h3>📋 1. მონაცემთა დამმუშავებელი</h3>
-          <p>
-            <strong>AgroHelper</strong> — ინტელექტუალური აგრო-პლატფორმა.<br />
-            საკონტაქტო ელ-ფოსტა:
-            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="630204110c0b060f1306114d0c05050a000a020f23040e020a0f4d000c0e">[email&#160;protected]</a></strong>
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #4f83cc">
-          <h3>🗄️ 2. რა მონაცემებს ვაგროვებთ</h3>
-          <p>
-            <strong>2.1. თქვენ მიერ მოწოდებული:</strong> სახელი, ელ-ფოსტა,
-            მცენარეების ფოტოები (დიაგნოსტიკისთვის) და თქვენი ბაღის ჩანაწერები.
-          </p>
-          <p>
-            <strong>2.1.1. აგრო ბაზარი (საჯარო მონაცემები):</strong>
-            მარკეტფლეისზე განცხადების გამოქვეყნებისას თქვენ მიერ მითითებული
-            <strong>ტელეფონის ნომერი</strong>, <strong>სახელი / გამყიდველის სახელი</strong>,
-            <strong>რეგიონი</strong>, პროდუქტის აღწერა და ფოტოები ხდება
-            <strong>საჯაროდ ხილვადი</strong> პლატფორმის ნებისმიერი ვიზიტორისთვის
-            (აპლიკაცია და ვებგვერდი). განცხადების გამოქვეყნებით თქვენ ეთანხმებით
-            ამ მონაცემების საჯარო გამოქვეყნებას. ტელეფონი განკუთვნილია მხოლოდ
-            გარიგების კომუნიკაციისთვის და არ უნდა გამოიყენებოდეს სპამისთვის.
-          </p>
-          <p>
-            <strong>2.2. ავტომატურად შეგროვებული:</strong> მოწყობილობის ტიპი,
-            ოპერაციული სისტემა, ენა და IP მისამართი უსაფრთხოებისთვის.
-          </p>
-          <p>
-            <strong>2.3. სენსორები და ლოკაცია:</strong> GPS (ამინდის
-            პროგნოზისთვის) და სინათლის სენსორი — გამოიყენება მხოლოდ თქვენი
-            ნებართვის შემდეგ.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #e11d48">
-          <h3>🌿 3. ჯანმრთელობის მონაცემები (Health Data)</h3>
-          <p>
-            AgroHelper-ი აგროვებს და ამუშავებს მონაცემებს, რომლებიც
-            კლასიფიცირდება როგორც "Health Data" მხოლოდ სოფლის მეურნეობის
-            კონტექსტში:
-          </p>
-          <ul>
-            <li>
-              <strong>მცენარეთა ჯანმრთელობა:</strong> თქვენ მიერ ატვირთული
-              ფოტოები გამოიყენება AI-ს მიერ მცენარეთა დაავადებების
-              იდენტიფიცირებისთვის.
-            </li>
-            <li>
-              <strong>გარემო პირობები:</strong> GPS და სენსორების მონაცემები
-              გამოიყენება ნიადაგის და კულტურების მდგომარეობის შესაფასებლად.
-            </li>
-          </ul>
-          <p>
-            ჩვენ <strong>არ ვაგროვებთ</strong> ადამიანის ჯანმრთელობასთან
-            დაკავშირებულ ინფორმაციას. მონაცემები
-            <strong>არ გამოიყენება</strong> სარეკლამო მიზნებისთვის და
-            <strong>არ გადაეცემა</strong> მესამე პირებს.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #8b5cf6">
-          <h3>⚙️ 4. გამოყენების მიზნები</h3>
-          <ul>
-            <li>სერვისის ფუნქციონირება და ანგარიშის მართვა.</li>
-            <li>AI დიაგნოსტიკა და აგრო-რჩევების პერსონალიზაცია.</li>
-            <li>უსაფრთხოება და თაღლითობის პრევენცია.</li>
-          </ul>
-          <p>
-            ჩვენ <strong>არ ვყიდით</strong> თქვენს მონაცემებს და
-            <strong>არ ვიყენებთ</strong> თქვენს ფოტოებს AI-ს მოსამზადებლად
-            თქვენი დასტურის გარეშე.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #f59e0b">
-          <h3>💳 5. გადახდები და გამოწერები</h3>
-          <p>
-            ტრანზაქციები სრულდება <strong>Google Play</strong> ან
-            <strong>App Store</strong>-ის მეშვეობით. ფასიანი პაკეტის შეძენისას
-            გადახდა ხდება თქვენი შესაბამისი ანგარიშიდან. გამოწერის მართვა და
-            გაუქმება შეგიძლიათ ნებისმიერ დროს თქვენი მოწყობილობის
-            პარამეტრებიდან (Settings). ჩვენ არ გვაქვს წვდომა თქვენს საბანკო
-            ბარათის მონაცემებზე.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #10b981">
-          <h3>🔒 6. უსაფრთხოება და შენახვა</h3>
-          <p>
-            მონაცემები ინახება ევროპის ტერიტორიაზე მდებარე დაცულ სერვერებზე.
-            ვიყენებთ ინდუსტრიაში მიღებულ დაშიფვრის სტანდარტებს (SSL/TLS).
-            მონაცემები ინახება ანგარიშის წაშლიდან 90 დღის განმავლობაში
-            (სარეზერვო ასლების ციკლი).
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #f43f5e">
-          <h3>👤 7. თქვენი უფლებები და ანგარიშის წაშლა</h3>
-          <p>
-            თქვენ გაქვთ უფლება მოითხოვოთ თქვენი მონაცების ასლი, გასწორება ან
-            <strong>სრული წაშლა</strong>.
-          </p>
-          <div class="highlight-box">
-            <strong>⚡ ანგარიშის წაშლა:</strong> <br />
-            თქვენ შეგიძლიათ წაშალოთ თქვენი ანგარიში პირდაპირ
-            <strong>AgroHelper</strong> აპლიკაციის პარამეტრებიდან (Settings >
-            Delete Account). ასევე, შეგიძლიათ მოგვწეროთ
-            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="402127322f28252c3025326e2f2626292329212c00272d21292c6e232f2d">[email&#160;protected]</a></strong>-ზე.
-            თქვენი ანგარიში და მასთან დაკავშირებული ინფორმაცია სრულად
-            წაიშლება 48 საათის განმავლობაში.
-          </div>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #a8e063">
-          <h3>⚠️ 8. მომხმარებლის მიერ გენერირებული კონტენტი (UGC)</h3>
-          <p>
-            აპლიკაციაში აკრძალულია შეურაცხმყოფელი, უკანონო ან დისკრიმინაციული
-            კონტენტის განთავსება. ჩვენ ვიტოვებთ უფლებას დაუყოვნებლივ დავბლოკოთ
-            მომხმარებელი, რომელიც დაარღვევს საზოგადოებრივ წესებს.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #06b6d4">
-          <h3>⚖️ 9. საჩივრები</h3>
-          <p>
-            კითხვების შემთხვევაში მოგვწერეთ პირდაპირ. ასევე, შეგიძლიათ
-            მიმართოთ პერსონალურ მონაცემთა დაცვის სამსახურს (pdp.ge).
-          </p>
-        </div>
-      </div>
-
-      <div id="lang-en" style="display: none">
-        <div style="margin-bottom: 1.5rem">
-          <span class="gdpr-badge">✓ GDPR</span>
-          <span class="gdpr-badge">✓ Apple & Google Store Policies</span>
-        </div>
-
-        <p style="
-              color: #6b7280;
-              font-size: 0.93rem;
-              line-height: 1.8;
-              margin-bottom: 2.5rem;
-            ">
-          This policy outlines how <strong>AgroHelper</strong> manages your
-          data. We are committed to protecting your privacy and being
-          transparent about our practices.
-        </p>
-
-        <div class="policy-block">
-          <h3>📋 1. Data Controller</h3>
-          <p>
-            <strong>AgroHelper</strong> — AI Agriculture Platform.<br />
-            Contact:
-            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="47262035282f222b372235692821212e242e262b07202a262e2b6924282a">[email&#160;protected]</a></strong>
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #e11d48">
-          <h3>🌿 2. Health Data Disclosure</h3>
-          <p>
-            AgroHelper collects data classified as "Health Data" strictly
-            within an agricultural and botanical context:
-          </p>
-          <ul>
-            <li>
-              <strong>Plant & Crop Health:</strong> Photos uploaded by users
-              are processed by our AI models to diagnose plant diseases and
-              deficiencies.
-            </li>
-            <li>
-              <strong>Environmental Health:</strong> GPS and sensor data are
-              analyzed to assess soil quality and environmental conditions for
-              optimal crop growth.
-            </li>
-          </ul>
-          <p>
-            We <strong>do not collect</strong> personal human health
-            information. This data is <strong>never sold</strong> to third
-            parties or used for targeted advertising.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #4f83cc">
-          <h3>🗄️ 3. Data Collection</h3>
-          <p>
-            <strong>3.1. Provided by you:</strong> Name, email, plant photos
-            (for diagnosis), and garden notes.
-          </p>
-          <p>
-            <strong>3.2. Automatically collected:</strong> Device info, OS
-            version, and IP address for security.
-          </p>
-          <p>
-            <strong>3.3. Sensors:</strong> GPS and light sensor data, used
-            only with your explicit consent.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #8b5cf6">
-          <h3>⚙️ 4. Usage Purposes</h3>
-          <ul>
-            <li>Providing core app features and account management.</li>
-            <li>AI diagnostics and personalized agricultural advice.</li>
-            <li>Security monitoring and fraud prevention.</li>
-          </ul>
-          <p>
-            We <strong>do not sell</strong> your data. Photos are not used for
-            training purposes without your consent.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #f59e0b">
-          <h3>💳 5. Payments & Subscriptions</h3>
-          <p>
-            All payments are processed via <strong>Google Play</strong> or
-            <strong>Apple App Store</strong>. Subscriptions auto-renew unless
-            canceled 24 hours before the end of the current period. Manage or
-            cancel subscriptions anytime in your device Account Settings.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #10b981">
-          <h3>🔒 6. Security & Retention</h3>
-          <p>
-            Data is stored on secure European servers using industry-standard
-            encryption. Personal data is retained for the lifetime of the
-            account plus 90 days for backup cycles.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #f43f5e">
-          <h3>👤 7. Account Deletion & Rights</h3>
-          <p>
-            You have the right to access, correct, or
-            <strong>delete</strong> your data at any time.
-          </p>
-          <div class="highlight-box">
-            <strong>⚡ How to Delete Account:</strong><br />
-            You can initiate account deletion directly within the
-            <strong>AgroHelper</strong> app (Settings > Delete Account).
-            Alternatively, contact
-            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="0b6a6c7964636e677b6e7925646d6d6268626a674b6c666a626725686466">[email&#160;protected]</a></strong>.
-            Your data will be permanently removed within 48 hours.
-          </div>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #a8e063">
-          <h3>⚠️ 8. User Generated Content (UGC)</h3>
-          <p>
-            Abusive, illegal, or discriminatory content is strictly
-            prohibited. We implement moderation tools and reserve the right to
-            ban users who violate community guidelines.
-          </p>
-        </div>
-
-        <div class="policy-block" style="border-left-color: #06b6d4">
-          <h3>⚖️ 9. Contact</h3>
-          <p>
-            For any privacy concerns, reach us at
-            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="c8a9afbaa7a0ada4b8adbae6a7aeaea1aba1a9a488afa5a9a1a4e6aba7a5">[email&#160;protected]</a></strong>.
-            You also have the right to lodge a complaint with your local
-            Data Protection Authority.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TERMS SECTION -->
-  <section id="terms" class="privacy-section" style="background: white; border-top: 1px solid #e5e7eb">
-    <div class="privacy-inner">
-      <div class="section-label">Legal</div>
-      <h2 class="section-title">Terms of Service (EULA)</h2>
-
-      <div class="policy-block">
-        <h3>🇬🇪 გამოყენების წესები და პირობები (EULA)</h3>
-        <p>
-          AgroHelper-ის (აპლიკაცია და ვებგვერდი) გამოყენებით თქვენ ეთანხმებით
-          წინამდებარე წესებსა და პირობებს, აგრეთვე Apple-ის სტანდარტულ
-          სამომხმარებლო შეთანხმებას (EULA) და Google Play-ის შესაბამის პირობებს.
-          აპლიკაციაში აკრძალულია არასათანადო, შეურაცხმყოფელი ან უკანონო
-          კონტენტის განთავსება.
-        </p>
-
-        <p>
-          <strong>1. საინფორმაციო / საშუამავლო პლატფორმა (Intermediary Disclaimer):</strong>
-          აგრო ბაზარი (Marketplace) წარმოადგენს მხოლოდ <strong>საინფორმაციო და
-          საშუამავლო</strong> პლატფორმას, სადაც მომხმარებლებს შეუძლიათ განცხადებების
-          განთავსება და ერთმანეთთან დაკავშირება. AgroHelper <strong>არ არის</strong>
-          გამყიდველი, მყიდველი, აგენტი ან გარანტი. ჩვენ <strong>არ ვიღებთ
-          პასუხისმგებლობას</strong> მყიდველსა და გამყიდველს შორის გარიგებაზე,
-          პროდუქციის ხარისხზე, რაოდენობაზე, ტრანსპორტირებაზე, გადახდაზე,
-          მიწოდებაზე ან შესაძლო თაღლითობაზე. ნებისმიერი გარიგება ხორციელდება
-          მხარეებს შორის პირდაპირ, მათი რისკითა და პასუხისმგებლობით. რეკომენდებულია
-          პირადი შემოწმება და უსაფრთხო გადახდის მეთოდების გამოყენება.
-        </p>
-
-        <p>
-          <strong>2. მომხმარებლის კონტენტი (UGC) და საჩივარი:</strong>
-          განცხადებები, ფოტოები, აღწერები და საკონტაქტო მონაცემები წარმოადგენს
-          მომხმარებლის მიერ შექმნილ კონტენტს (UGC). წესების დამრღვევი კონტენტი
-          შეიძლება წაიშალოს 24 საათში, ხოლო ანგარიში — დაიბლოკოს. ნებისმიერ
-          მომხმარებელს შეუძლია ყალბი, მავნე ან უკანონო განცხადების
-          <strong>საჩივარი / Report</strong> პროდუქტის გვერდიდან ან ელ-ფოსტით
-          (support). სერიოზული დარღვევის შემთხვევაში შეგვიძლია თანამშრომლობა
-          უფლებამოსილ ორგანოებთან საქართველოს კანონმდებლობის შესაბამისად.
-        </p>
-
-        <p>
-          <strong>3. აკრძალული პროდუქცია (Prohibited Items):</strong>
-          აგრო ბაზარზე <strong>აკრძალულია</strong> შემდეგის გაყიდვა/განცხადება:
-        </p>
-        <ul>
-          <li>ცეცხლსასროლი იარაღი, საბრძოლო მასალა, ასაფეთქებელი ნივთიერებები;</li>
-          <li>ნარკოტიკული და ფსიქოტროპული ნივთიერებები, მათი პრეკურსორები;</li>
-          <li>სპეციალურ კონტროლს დაქვემდებარებული შხამ-ქიმიკატები და პესტიციდები ლიცენზიის გარეშე;</li>
-          <li>არალიცენზირებული ვეტერინარული ან ადამიანის მედიკამენტები;</li>
-          <li>ყალბი, მოპარული ან კონტრაფაქტული საქონელი;</li>
-          <li>ადამიანის ორგანოები, სექსუალური მომსახურება, აზარტული თამაშები;</li>
-          <li>ნებისმიერი სხვა საქონელი/მომსახურება, რომლის გაყიდვაც აკრძალულია საქართველოს კანონმდებლობით.</li>
-        </ul>
-
-        <p>
-          <strong>გამოწერა:</strong> ფასიანი სერვისები აქტიურდება App Store / Google Play-ის
-          მეშვეობით. გაუქმება შესაძლებელია ანგარიშის პარამეტრებიდან შესაბამის მაღაზიაში.
-        </p>
-
-        <p>
-          <strong>ანგარიშის წაშლა:</strong> მომხმარებელს შეუძლია ანგარიშისა და
-          დაკავშირებული მონაცემების წაშლის მოთხოვნა აპლიკაციიდან ან ელ-ფოსტით.
-          მარკეტფლეისის აქტიური განცხადებები წაიშლება ანგარიშთან ერთად.
-        </p>
-
-        <p style="font-size: 0.85rem; color: #6b7280">
-          წესები რეგულირდება საქართველოს კანონმდებლობით, მათ შორის
-          „პერსონალურ მონაცემთა დაცვის შესახებ“ კანონით. დავების შემთხვევაში
-          იურისდიქცია — საქართველოს სასამართლოები.
-        </p>
-
-        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px dashed #eee" />
-
-        <h3>🇬🇧 Terms & Conditions (English)</h3>
-        <p>
-          By using AgroHelper (app and website) you agree to these Terms and to the
-          standard Apple Licensed Application EULA and applicable Google Play terms.
-          Abusive, illegal, or offensive content is prohibited.
-        </p>
-        <p>
-          <strong>1. Intermediary disclaimer:</strong> The Agro Marketplace is an
-          <strong>information and intermediary</strong> platform only. AgroHelper is
-          <strong>not</strong> a seller, buyer, agent, or guarantor. We are
-          <strong>not liable</strong> for deals between users, product quality,
-          quantity, transport, payment, delivery, or fraud. All transactions are
-          between the parties at their own risk.
-        </p>
-        <p>
-          <strong>2. UGC &amp; reporting:</strong> Listings and photos are user-generated
-          content. Violating content may be removed within 24 hours and accounts banned.
-          Users can <strong>Report</strong> listings from the product page or by email.
-        </p>
-        <p>
-          <strong>3. Prohibited items:</strong> Firearms and ammunition; narcotics;
-          restricted pesticides/chemicals without licence; unlicensed veterinary or human
-          medicines; stolen or counterfeit goods; and any other goods/services illegal under
-          the laws of Georgia.
-        </p>
-        <p>
-          <strong>Subscriptions:</strong> Paid services via App Store / Google Play; cancel
-          anytime in store account settings. <strong>Account deletion:</strong> available in-app
-          or by email; marketplace listings are removed with the account.
-        </p>
-        <p style="font-size: 0.8rem; color: #6b7280">
-          Apple EULA:
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">View standard EULA</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="contact-section">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="section-label">კონტაქტი</div>
-          <h2>დაგვიკავშირდით</h2>
-          <p>
-            გაქვთ იდეა, შემოთავაზება ან გჭირდებათ დახმარება? ჩვენი გუნდი
-            მზადაა.
-          </p>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <div>
+                <p>ელ-ფოსტა</p>
+                <a href="/cdn-cgi/l/email-protection#9cfdfbeef3f4f9f0ecf9eeb2f3fafaf5fff5fdf0dcfbf1fdf5f0b2fff3f1"
+                  class="val"><span class="__cf_email__"
+                    data-cfemail="94f5f3e6fbfcf1f8e4f1e6bafbf2f2fdf7fdf5f8d4f3f9f5fdf8baf7fbf9">agrohelper.official@gmail.com</span></a>
+              </div>
             </div>
-            <div>
-              <p>ელ-ფოსტა</p>
-              <a href="/cdn-cgi/l/email-protection#9cfdfbeef3f4f9f0ecf9eeb2f3fafaf5fff5fdf0dcfbf1fdf5f0b2fff3f1"
-                class="val"><span class="__cf_email__"
-                  data-cfemail="94f5f3e6fbfcf1f8e4f1e6bafbf2f2fdf7fdf5f8d4f3f9f5fdf8baf7fbf9">agrohelper.official@gmail.com</span></a>
+            <div class="contact-item">
+              <div class="contact-icon">⏱️</div>
+              <div>
+                <p>პასუხის დრო</p>
+                <span class="val">48 საათის განმავლობაში</span>
+              </div>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon">⏱️</div>
-            <div>
-              <p>პასუხის დრო</p>
-              <span class="val">48 საათის განმავლობაში</span>
+          <div class="social-card">
+            <h3>შემოუერთდით საზოგადოებას</h3>
+            <div class="social-buttons">
+              <a href="https://www.facebook.com/profile.php?id=61579468957259" class="social-btn sb-facebook">f
+                Facebook</a>
+              <a href="https://www.instagram.com/agrohelper.ge/" class="social-btn sb-instagram">📸 Instagram</a>
+            </div>
+            <div class="social-note">
+              🌱 გამოგვყევით სოციალურ ქსელებში
+              გადმოდით და გამოიწერეთ AgroHelper - ის გვერდები:
+              Facebook-ზე და Instagram-ზე.
             </div>
           </div>
         </div>
-        <div class="social-card">
-          <h3>შემოუერთდით საზოგადოებას</h3>
-          <div class="social-buttons">
-            <a href="https://www.facebook.com/profile.php?id=61579468957259" class="social-btn sb-facebook">f
-              Facebook</a>
-            <a href="https://www.instagram.com/agrohelper.ge/" class="social-btn sb-instagram">📸 Instagram</a>
-          </div>
-          <div class="social-note">
-            🌱 სოციალურ ქსელებში მალე გამოჩნდება საინტერესო რჩევები
-            ფერმერებისთვის, AI-ს ახალი ფუნქციები და ბეტა-ტესტირების
-            შესაძლებლობა.
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
   </div>
   <!-- /#mainContent -->
 
@@ -2315,18 +2380,64 @@
 
   <!-- MODAL: APP DOWNLOAD BRIDGE -->
   <div class="modal-overlay" id="appModal">
-    <div class="modal-card" style="text-align: center;">
+    <div class="modal-card" style="text-align: center; max-width: 480px;">
       <button class="modal-close-btn" onclick="closeModal('appModal')">✕</button>
-      <i class="fa-solid fa-mobile-screen-button" style="font-size: 48px; color: var(--leaf); margin-bottom: 1rem;"></i>
-      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest);">განცხადება დადეთ
-        წამებში
+      <i class="fa-solid fa-mobile-screen-button"
+        style="font-size: 44px; color: var(--leaf); margin-bottom: 0.8rem;"></i>
+
+      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest); margin-bottom: 0.4rem;">
+        განცხადება დადეთ წამებში
       </h2>
-      <p style="color: #666; margin: 12px 0 0 0; font-size: 0.9rem; line-height: 1.6;">
-        აგრო ბაზარზე განცხადების დასადებად გადმოწერეთ AgroHelper — გარდა ამისა, აპლიკაციაში AI-ით
-        დაასკანერებთ მცენარეს, მიიღებთ ამინდისა და ნიადაგის ანალიზს და პერსონალურ მოვლის რჩევებს.
+
+      <p style="color: #666; margin-bottom: 1.2rem; font-size: 0.92rem; line-height: 1.5;">
+        აგრო ბაზარზე განცხადების დასადებად გადმოწერეთ <strong>AgroHelper</strong> და ისარგებლეთ სრული ფუნქციონალით:
       </p>
 
-      <div class="app-modal-store-frame">
+      <!-- FEATURES LIST -->
+      <div class="modal-features-list">
+        <div class="feature-item">
+          <i class="fa-solid fa-robot"></i>
+          <div>
+            <strong>AI ასისტენტი</strong>
+            <span>იყენებს ქართულ აგრო-წიგნებსა და მასალებს</span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <i class="fa-solid fa-expand"></i>
+          <div>
+            <strong>AI სკანერი</strong>
+            <span>მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა</span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <div>
+            <strong>ამინდი & სიახლეები</strong>
+            <span>ზუსტი აგრო პროგნოზი და სფეროს სიახლეები</span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <i class="fa-solid fa-droplet"></i>
+          <div>
+            <strong>ჭკვიანი ხელსაწყოები</strong>
+            <span>მორწყვის მენეჯერი და განათების საზომი</span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <i class="fa-solid fa-seedling"></i>
+          <div>
+            <strong>პირადი ბაღი</strong>
+            <span>დაამატეთ მცენარეები და მიიღეთ პერსონალური რჩევები</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STORE BUTTONS FRAME -->
+      <div class="app-modal-store-frame" style="margin-top: 1.2rem;">
         <div class="store-wrapper">
           <div class="store-cta-label">
             <span class="store-cta-arrow">↓</span>
@@ -2336,16 +2447,16 @@
           <div class="store-buttons-row">
             <a href="https://play.google.com/store/apps/details?id=ge.agrohelper.app&pcampaignid=web_share"
               target="_blank" style="
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #000;
-                  color: white;
-                  padding: 14px 16px;
-                  text-decoration: none;
-                  transition: background 0.2s;
-                  border-right: 1px solid rgba(255, 255, 255, 0.08);
-                " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #000;
+                color: white;
+                padding: 14px 16px;
+                text-decoration: none;
+                transition: background 0.2s;
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+              " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
               <svg viewBox="0 0 512 512" width="22" height="22" style="margin-right: 10px">
                 <path fill="#4285F4" d="M46.8 441.6c-4.8-5.2-7.8-12.2-7.8-20.2V90.6c0-8 3-15 7.8-20.2L250.6 256z" />
                 <path fill="#EA4335"
@@ -2356,43 +2467,43 @@
                   d="M62.3 495.9c6 8.5 15.9 14.1 27.1 14.1 6.1 0 12-1.6 17.1-4.4l258.1-139.5L250.6 256z" />
               </svg>
               <div style="
-                    display: flex;
-                    flex-direction: column;
-                    line-height: 1.1;
-                  ">
+                  display: flex;
+                  flex-direction: column;
+                  line-height: 1.1;
+                ">
                 <span style="
-                      font-size: 9px;
-                      opacity: 0.8;
-                      text-transform: uppercase;
-                    ">Get it on</span>
+                    font-size: 9px;
+                    opacity: 0.8;
+                    text-transform: uppercase;
+                  ">Get it on</span>
                 <span style="font-size: 15px; font-weight: 700">Google Play</span>
               </div>
             </a>
 
             <a href="https://apps.apple.com/us/app/agrohelper/id6761626943" target="_blank" style="
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #000;
-                  color: white;
-                  padding: 14px 16px;
-                  text-decoration: none;
-                  transition: background 0.2s;
-                " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #000;
+                color: white;
+                padding: 14px 16px;
+                text-decoration: none;
+                transition: background 0.2s;
+              " onmouseover="this.style.background = '#1a1a1a'" onmouseout="this.style.background = '#000'">
               <svg viewBox="0 0 384 512" width="20" height="20" style="margin-right: 10px; fill: white">
                 <path
                   d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
               </svg>
               <div style="
-                    display: flex;
-                    flex-direction: column;
-                    line-height: 1.1;
-                  ">
+                  display: flex;
+                  flex-direction: column;
+                  line-height: 1.1;
+                ">
                 <span style="
-                      font-size: 9px;
-                      opacity: 0.8;
-                      text-transform: uppercase;
-                    ">Download on the</span>
+                    font-size: 9px;
+                    opacity: 0.8;
+                    text-transform: uppercase;
+                  ">Download on the</span>
                 <span style="font-size: 15px; font-weight: 700">App Store</span>
               </div>
             </a>
