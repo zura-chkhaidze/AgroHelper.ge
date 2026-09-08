@@ -981,6 +981,56 @@
       transform: scale(0.96);
     }
 
+
+    .market-pagination {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .market-pagination .page-btn {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 12px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(45, 122, 58, 0.2);
+      background: #fff;
+      color: var(--forest);
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .market-pagination .page-btn:hover:not(:disabled) {
+      border-color: var(--leaf);
+      color: var(--leaf);
+      transform: translateY(-1px);
+    }
+
+    .market-pagination .page-btn.active {
+      background: var(--leaf);
+      border-color: var(--leaf);
+      color: #fff;
+    }
+
+    .market-pagination .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .market-pagination .page-info {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0 6px;
+      font-weight: 500;
+    }
+
     /* Privacy & Terms Section */
 
     /* ---- Full-page product detail (replaces old modal for shareable links) ---- */
@@ -1826,6 +1876,7 @@
       </div>
 
       <div class="market-grid" id="listingsGrid"></div>
+      <div class="market-pagination" id="marketPagination" aria-label="გვერდები"></div>
     </section>
 
     <!-- FEATURES SECTION -->
@@ -1936,7 +1987,7 @@
               <strong>AgroHelper</strong> — ინტელექტუალური აგრო-პლატფორმა.<br />
               საკონტაქტო ელ-ფოსტა:
               <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="630204110c0b060f1306114d0c05050a000a020f23040e020a0f4d000c0e">[email&#160;protected]</a></strong>
+                  data-cfemail="630204110c0b060f1306114d0c05050a000a020f23040e020a0f4d000c0e">[agrohelper.official@gmail.com]</a></strong>
             </p>
           </div>
 
@@ -2041,7 +2092,7 @@
               <strong>AgroHelper</strong> აპლიკაციის პარამეტრებიდან (Settings >
               Delete Account). ასევე, შეგიძლიათ მოგვწეროთ
               <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="402127322f28252c3025326e2f2626292329212c00272d21292c6e232f2d">[email&#160;protected]</a></strong>-ზე.
+                  data-cfemail="402127322f28252c3025326e2f2626292329212c00272d21292c6e232f2d">agrohelper.official@gmail.com</a></strong>-ზე.
               თქვენი ანგარიში და მასთან დაკავშირებული ინფორმაცია სრულად
               წაიშლება 48 საათის განმავლობაში.
             </div>
@@ -2088,7 +2139,7 @@
               <strong>AgroHelper</strong> — AI Agriculture Platform.<br />
               Contact:
               <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="47262035282f222b372235692821212e242e262b07202a262e2b6924282a">[email&#160;protected]</a></strong>
+                  data-cfemail="47262035282f222b372235692821212e242e262b07202a262e2b6924282a">agrohelper.official@gmail.com</a></strong>
             </p>
           </div>
 
@@ -2177,7 +2228,7 @@
               <strong>AgroHelper</strong> app (Settings > Delete Account).
               Alternatively, contact
               <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="0b6a6c7964636e677b6e7925646d6d6268626a674b6c666a626725686466">[email&#160;protected]</a></strong>.
+                  data-cfemail="0b6a6c7964636e677b6e7925646d6d6268626a674b6c666a626725686466">agrohelper.official@gmail.com</a></strong>.
               Your data will be permanently removed within 48 hours.
             </div>
           </div>
@@ -2196,7 +2247,7 @@
             <p>
               For any privacy concerns, reach us at
               <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="c8a9afbaa7a0ada4b8adbae6a7aeaea1aba1a9a488afa5a9a1a4e6aba7a5">[email&#160;protected]</a></strong>.
+                  data-cfemail="c8a9afbaa7a0ada4b8adbae6a7aeaea1aba1a9a488afa5a9a1a4e6aba7a5">agrohelper.official@gmail.com</a></strong>.
               You also have the right to lodge a complaint with your local
               Data Protection Authority.
             </p>
@@ -2557,6 +2608,8 @@
     let searchTimeout = null;
     let productGalleryImages = [];
     let productGalleryIndex = 0;
+    let currentPage = 1;
+    let totalPages = 1;
 
     function renderCategories() {
       const container = document.getElementById("categoriesContainer");
@@ -2568,10 +2621,11 @@
         `).join('');
     }
 
-    async function fetchListings() {
+    async function fetchListings(page = 1) {
+      currentPage = Math.max(1, parseInt(page, 10) || 1);
       const searchInput = document.getElementById("searchInput");
       const search = searchInput ? searchInput.value : "";
-      let url = `${API_BASE}?page=1`;
+      let url = `${API_BASE}?page=${currentPage}`;
       if (selectedCategory !== "all") url += `&category=${selectedCategory}`;
       if (search.trim()) url += `&search=${encodeURIComponent(search.trim())}`;
 
@@ -2579,12 +2633,56 @@
         const res = await fetch(url);
         if (!res.ok) throw new Error("Network error");
         const data = await res.json();
+        totalPages = data.pages || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
         renderListings(data.results || []);
+        renderPagination();
+        const grid = document.getElementById("listingsGrid");
+        if (grid && currentPage > 1) {
+          grid.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       } catch (err) {
         console.error("Fetch Error:", err);
         const grid = document.getElementById("listingsGrid");
         if (grid) grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">განცხადებები ამჟამად მიუწვდომელია</div>`;
+        const pag = document.getElementById("marketPagination");
+        if (pag) pag.innerHTML = "";
       }
+    }
+
+    function renderPagination() {
+      const el = document.getElementById("marketPagination");
+      if (!el) return;
+      if (totalPages <= 1) {
+        el.innerHTML = "";
+        return;
+      }
+
+      const maxButtons = 7;
+      let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+      let end = Math.min(totalPages, start + maxButtons - 1);
+      start = Math.max(1, end - maxButtons + 1);
+
+      let html = "";
+      html += `<button type="button" class="page-btn" ${currentPage <= 1 ? "disabled" : ""} onclick="fetchListings(${currentPage - 1})" aria-label="წინა">‹</button>`;
+
+      if (start > 1) {
+        html += `<button type="button" class="page-btn" onclick="fetchListings(1)">1</button>`;
+        if (start > 2) html += `<span class="page-info">…</span>`;
+      }
+
+      for (let i = start; i <= end; i++) {
+        html += `<button type="button" class="page-btn ${i === currentPage ? "active" : ""}" onclick="fetchListings(${i})">${i}</button>`;
+      }
+
+      if (end < totalPages) {
+        if (end < totalPages - 1) html += `<span class="page-info">…</span>`;
+        html += `<button type="button" class="page-btn" onclick="fetchListings(${totalPages})">${totalPages}</button>`;
+      }
+
+      html += `<button type="button" class="page-btn" ${currentPage >= totalPages ? "disabled" : ""} onclick="fetchListings(${currentPage + 1})" aria-label="შემდეგი">›</button>`;
+      html += `<span class="page-info">გვერდი ${currentPage} / ${totalPages}</span>`;
+      el.innerHTML = html;
     }
 
     function renderListings(items) {
@@ -2810,12 +2908,12 @@
     function selectCategory(id) {
       selectedCategory = id;
       renderCategories();
-      fetchListings();
+      fetchListings(1);
     }
 
     function handleSearch() {
       clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(fetchListings, 300);
+      searchTimeout = setTimeout(() => fetchListings(1), 300);
     }
 
     function openAppModal(reason) {
