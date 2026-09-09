@@ -2857,6 +2857,47 @@
       hideProductPage();
       document.getElementById("market")?.scrollIntoView();
     });
+    // ჰედერის ნავიგაცია პროდუქტის გვერდიდანაც იმუშაოს
+    function goToMainSection(hash) {
+      hideProductPage();
+      const url = new URL(window.location.href);
+      url.searchParams.delete("product");
+      if (hash) {
+        url.hash = hash;
+      } else {
+        url.hash = "";
+      }
+      history.pushState({}, "", url.pathname + url.search + url.hash);
+
+      if (hash) {
+        setTimeout(() => {
+          const el = document.querySelector(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    document.querySelector("a.logo")?.addEventListener("click", (e) => {
+      if (document.getElementById("productPage")?.style.display === "block") {
+        e.preventDefault();
+        goToMainSection("#home");
+      }
+    });
+
+    document.querySelectorAll("nav ul a, .mobile-bottom-nav a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href") || "";
+        if (
+          document.getElementById("productPage")?.style.display === "block" &&
+          href.startsWith("#")
+        ) {
+          e.preventDefault();
+          goToMainSection(href);
+        }
+      });
+    });
 
     // Support browser back/forward between market and product links
     window.addEventListener("popstate", showProductPageFromURL);
