@@ -3,6 +3,21 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Resolve site language before first paint (default: Georgian)
+    (function () {
+      var lang = "ka";
+      try {
+        var q = new URLSearchParams(location.search);
+        var saved = localStorage.getItem("agro_lang");
+        if (q.get("product")) lang = "ka";            // shared marketplace links are Georgian-only
+        else if (q.get("lang") === "en" || q.get("lang") === "ka") lang = q.get("lang");
+        else if (saved === "en" || saved === "ka") lang = saved;
+      } catch (e) { }
+      window.__lang = lang;
+      document.documentElement.setAttribute("data-lang", lang);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="MzceSNmMuxjhDNcrOAHJOkucnNRyWrEacb5LJtW_2Q0" />
   <meta name="google-site-verification" content="DheUb071dcrbRxN5HUAfOEX5daRcXS65jhKouhSCq4Y" />
@@ -1586,6 +1601,63 @@
         align-items: flex-start;
       }
     }
+
+    /* ==================== LANGUAGE SWITCHER (KA / EN) ==================== */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 2px;
+      background: rgba(45, 122, 58, 0.08);
+      border: 1px solid rgba(44, 122, 58, 0.2);
+      border-radius: 100px;
+      padding: 3px;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      color: var(--forest);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: background 0.2s, color 0.2s, opacity 0.2s;
+    }
+
+    .lang-switch button:hover {
+      opacity: 1;
+    }
+
+    .lang-switch button.active {
+      background: var(--forest);
+      color: #fff;
+      opacity: 1;
+    }
+
+    /* English version: no Agro Bazaar (marketplace) and no Georgian-only blocks */
+    html[data-lang="en"] [data-market],
+    html[data-lang="en"] [data-ka-only] {
+      display: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      nav ul {
+        gap: 1.1rem;
+      }
+
+      .nav-right {
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -1607,22 +1679,28 @@
       <img src="Stylized plant with .png" alt="AgroHelper Logo" />
       Agro<span>Helper</span>
     </a>
-    <ul>
-      <li><a href="#home">მთავარი</a></li>
-      <li><a href="#features">ფუნქციები</a></li>
-      <li><a href="#market" class="nav-market-link"><span class="nav-market-dot"></span> 🌾 აგრო ბაზარი</a></li>
-      <li><a href="#privacy">Privacy</a></li>
-      <li><a href="#contact">კონტაქტი</a></li>
-      <li><a href="#terms">Terms</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#home" data-en="Home">მთავარი</a></li>
+        <li><a href="#features" data-en="Features">ფუნქციები</a></li>
+        <li data-market><a href="#market" class="nav-market-link"><span class="nav-market-dot"></span> 🌾 აგრო ბაზარი</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#contact" data-en="Contact">კონტაქტი</a></li>
+        <li><a href="#terms">Terms</a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language / ენა">
+        <button type="button" data-set-lang="ka">KA</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </div>
   </nav>
 
   <!-- MOBILE BOTTOM NAV (visible only on small screens) -->
   <nav class="mobile-bottom-nav">
-    <a href="#home"><i class="fa-solid fa-house"></i> მთავარი</a>
-    <a href="#market" class="mbn-highlight"><i class="fa-solid fa-store"></i> ბაზარი</a>
-    <button type="button" onclick="openAppModal('download')"><i class="fa-solid fa-download"></i> გადმოწერა</button>
-    <a href="#contact"><i class="fa-solid fa-envelope"></i> კონტაქტი</a>
+    <a href="#home"><i class="fa-solid fa-house"></i> <span data-en="Home">მთავარი</span></a>
+    <a href="#market" class="mbn-highlight" data-market><i class="fa-solid fa-store"></i> ბაზარი</a>
+    <button type="button" onclick="openAppModal('download')"><i class="fa-solid fa-download"></i> <span data-en="Download">გადმოწერა</span></button>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-en="Contact">კონტაქტი</span></a>
   </nav>
 
   <!-- FULL-PAGE PRODUCT DETAIL (shareable via ?product=ID link) -->
@@ -1656,8 +1734,8 @@
               🌿 AI-Powered Agriculture
             </div>
           </div>
-          <h1>მართე მეურნეობა <em>ხელოვნური ინტელექტით</em></h1>
-          <p>
+          <h1 data-en="Run your farm &lt;em&gt;with artificial intelligence&lt;/em&gt;">მართე მეურნეობა <em>ხელოვნური ინტელექტით</em></h1>
+          <p data-en="AgroHelper — instant plant disease diagnostics and weather forecasts with agricultural metrics. Take care of your farm easily, right from your smartphone.">
             AgroHelper — მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა,
             ამინდის პროგნოზი სოფლის მეურნეობის მეტრიკებით და პირდაპირი აგრობაზარი ფერმერებისთვის.
             იზრუნეთ მეურნეობაზე მარტივად, პირდაპირ სმარტფონიდან.
@@ -1742,7 +1820,7 @@
           <div class="store-wrapper">
             <div class="store-cta-label">
               <span class="store-cta-arrow">↓</span>
-              გადმოწერეთ
+              <span data-en="Download">გადმოწერეთ</span>
               <span class="store-cta-arrow">↓</span>
             </div>
             <div class="store-buttons-row">
@@ -1815,23 +1893,23 @@
         <div class="hero-visual">
           <div class="hero-card fc-green">
             <div class="icon">🪴</div>
-            <h4>AI სკანირება</h4>
-            <p>დაავადებების მყისიერი იდენტიფიკაცია</p>
+            <h4 data-en="AI Scanning">AI სკანირება</h4>
+            <p data-en="Instant disease identification">დაავადებების მყისიერი იდენტიფიკაცია</p>
           </div>
           <div class="hero-card">
             <div class="icon">☀️</div>
-            <h4>ამინდი &amp; ნიადაგი</h4>
-            <p>რეალ-ტაიმ მონაცემები თქვენი მეურნეობისთვის</p>
+            <h4 data-en="Weather &amp; Soil">ამინდი &amp; ნიადაგი</h4>
+            <p data-en="Real-time data for your farm">რეალ-ტაიმ მონაცემები თქვენი მეურნეობისთვის</p>
           </div>
           <div class="hero-card">
             <div class="icon">💧</div>
-            <h4>ჭკვიანი მორწყვა</h4>
-            <p>AI-ით ოპტიმიზებული განრიგი</p>
+            <h4 data-en="Smart Watering">ჭკვიანი მორწყვა</h4>
+            <p data-en="AI-optimized schedule">AI-ით ოპტიმიზებული განრიგი</p>
           </div>
           <div class="hero-card">
             <div class="icon">🌾</div>
-            <h4>აგრო ბაზარი & სიახლეები</h4>
-            <p>პროდუქციის ყიდვა-გაყიდვა და ყოველდღიური სიახლეები</p>
+            <h4 data-en="Agro News">აგრო ბაზარი & სიახლეები</h4>
+            <p data-en="Daily agricultural news">პროდუქციის ყიდვა-გაყიდვა და ყოველდღიური სიახლეები</p>
           </div>
         </div>
       </div>
@@ -1847,7 +1925,7 @@
       <span class="tech-badge">🔔 Expo Notifications</span>
     </div>
     <!-- ==================== აგრო ბაზარი SECTION ==================== -->
-    <section id="market" class="market-section">
+    <section id="market" class="market-section" data-market>
       <div class="market-banner">
         <div class="market-banner-badge">🌾 ცოცხალი პლატფორმა · პირდაპირ ფერმერებისგან</div>
         <h2 class="section-title" style="margin:0.6rem 0 0.7rem;">აგრო ბაზარი</h2>
@@ -1881,56 +1959,56 @@
     <!-- FEATURES SECTION -->
     <section id="features">
       <div class="features">
-        <div class="section-label">ფუნქციები</div>
-        <h2 class="section-title">AgroHelper-ის შესაძლებლობები</h2>
-        <p class="section-sub">
+        <div data-en="Features" class="section-label">ფუნქციები</div>
+        <h2 data-en="What AgroHelper can do" class="section-title">AgroHelper-ის შესაძლებლობები</h2>
+        <p data-en="Tools that make your garden more productive." class="section-sub">
           ინსტრუმენტები, რომლებიც თქვენს ბაღს უფრო პროდუქტიულს გახდის.
         </p>
         <div class="features-grid">
           <div class="feature-card fc-green">
             <div class="feature-icon fi-green">🪴</div>
-            <h3>ჩემი ბაღი</h3>
-            <p>
+            <h3 data-en="My Garden">ჩემი ბაღი</h3>
+            <p data-en="Build a digital library of your plants. AI generates a &quot;care passport&quot; for each one.">
               შექმენით მცენარეების ციფრული ბიბლიოთეკა. AI გიგენერირებთ "მოვლის
               პასპორტს".
             </p>
           </div>
           <div class="feature-card fc-blue">
             <div class="feature-icon fi-blue">💧</div>
-            <h3>ჭკვიანი მორწყვა</h3>
-            <p>
+            <h3 data-en="Smart Watering">ჭკვიანი მორწყვა</h3>
+            <p data-en="AI determines the optimal watering schedule based on plant type and weather data.">
               AI განსაზღვრავს მორწყვის ოპტიმალურ განრიგს მცენარის ტიპისა და
               ამინდის მონაცემების საფუძველზე.
             </p>
           </div>
           <div class="feature-card fc-purple">
             <div class="feature-icon fi-purple">🔍</div>
-            <h3>AI სკანირება</h3>
-            <p>
+            <h3 data-en="AI Scanning">AI სკანირება</h3>
+            <p data-en="Snap a photo of your plant and get an instant AI diagnosis and advice.">
               გადაუღეთ ფოტო მცენარეს — AI საშუალებით მიიღეთ მყისიერი დიაგნოზი და
               რჩევები.
             </p>
           </div>
           <div class="feature-card fc-yellow">
             <div class="feature-icon fi-yellow">📰</div>
-            <h3>აგრო ნიუსები</h3>
-            <p>
+            <h3 data-en="Agro News">აგრო ნიუსები</h3>
+            <p data-en="Daily agricultural news from Georgia and around the world, right on your phone.">
               ყოველდღიური აგრო სიახლეები საქართველოს და მსოფლიის მასშტაბით,
               პირდაპირ თქვენს ტელეფონში.
             </p>
           </div>
           <div class="feature-card fc-orange">
             <div class="feature-icon fi-orange">☀️</div>
-            <h3>განათების საზომი</h3>
-            <p>
+            <h3 data-en="Light Meter">განათების საზომი</h3>
+            <p data-en="Measure light intensity with your phone's sensors and find the best spot in your garden.">
               ტელეფონის სენსორებით გაზომეთ სინათლის ინტენსივობა და იპოვეთ
               საუკეთესო ადგილი ბაღში.
             </p>
           </div>
           <div class="feature-card fc-orange">
             <div class="feature-icon fi-orange">🤖</div>
-            <h3>AI ასისტენტი</h3>
-            <p>
+            <h3 data-en="AI Assistant">AI ასისტენტი</h3>
+            <p data-en="Answers to any plant care question, 24/7 support and personalized advice.">
               ნებისმიერ კითხვაზე პასუხი მცენარეების მოვლის შესახებ, 24/7
               მხარდაჭერა და პერსონალური რჩევები.
             </p>
@@ -1957,9 +2035,9 @@
         </div>
 
         <div class="privacy-meta">
-          <span>📅 ბოლო განახლება: აგვისტო 2026</span>
+          <span data-en="📅 Last updated: August 2026">📅 ბოლო განახლება: აგვისტო 2026</span>
           <span>🌍 GDPR Compliant</span>
-          <span>🔒 პერსონალურ მონაცემთა დაცვის შესახებ კანონი</span>
+          <span data-en="🔒 Georgian Personal Data Protection Law">🔒 პერსონალურ მონაცემთა დაცვის შესახებ კანონი</span>
         </div>
 
         <div id="lang-ka">
@@ -2262,6 +2340,7 @@
         <h2 class="section-title">Terms of Service (EULA)</h2>
 
         <div class="policy-block">
+          <div data-ka-only>
           <h3>🇬🇪 გამოყენების წესები და პირობები (EULA)</h3>
           <p>
             AgroHelper-ის (აპლიკაცია და ვებგვერდი) გამოყენებით თქვენ ეთანხმებით
@@ -2326,7 +2405,9 @@
             იურისდიქცია — საქართველოს სასამართლოები.
           </p>
 
-          <hr style="margin: 1.5rem 0; border: 0; border-top: 1px dashed #eee" />
+          </div>
+
+          <hr data-ka-only style="margin: 1.5rem 0; border: 0; border-top: 1px dashed #eee" />
 
           <h3>🇬🇧 Terms & Conditions (English)</h3>
           <p>
@@ -2334,7 +2415,7 @@
             standard Apple Licensed Application EULA and applicable Google Play terms.
             Abusive, illegal, or offensive content is prohibited.
           </p>
-          <p>
+          <p data-market>
             <strong>1. Intermediary disclaimer:</strong> The Agro Marketplace is an
             <strong>information and intermediary</strong> platform only. AgroHelper is
             <strong>not</strong> a seller, buyer, agent, or guarantor. We are
@@ -2342,12 +2423,12 @@
             quantity, transport, payment, delivery, or fraud. All transactions are
             between the parties at their own risk.
           </p>
-          <p>
+          <p data-market>
             <strong>2. UGC &amp; reporting:</strong> Listings and photos are user-generated
             content. Violating content may be removed within 24 hours and accounts banned.
             Users can <strong>Report</strong> listings from the product page or by email.
           </p>
-          <p>
+          <p data-market>
             <strong>3. Prohibited items:</strong> Firearms and ammunition; narcotics;
             restricted pesticides/chemicals without licence; unlicensed veterinary or human
             medicines; stolen or counterfeit goods; and any other goods/services illegal under
@@ -2356,7 +2437,7 @@
           <p>
             <strong>Subscriptions:</strong> Paid services via App Store / Google Play; cancel
             anytime in store account settings. <strong>Account deletion:</strong> available in-app
-            or by email; marketplace listings are removed with the account.
+            or by email<span data-market>; marketplace listings are removed with the account</span>.
           </p>
           <p style="font-size: 0.8rem; color: #6b7280">
             Apple EULA:
@@ -2372,9 +2453,9 @@
       <div class="contact-section">
         <div class="contact-grid">
           <div class="contact-info">
-            <div class="section-label">კონტაქტი</div>
-            <h2>დაგვიკავშირდით</h2>
-            <p>
+            <div data-en="Contact" class="section-label">კონტაქტი</div>
+            <h2 data-en="Get in touch">დაგვიკავშირდით</h2>
+            <p data-en="Have an idea, a suggestion, or need help? Our team is ready.">
               გაქვთ იდეა, შემოთავაზება ან გჭირდებათ დახმარება? ჩვენი გუნდი
               მზადაა.
             </p>
@@ -2386,7 +2467,7 @@
                 </svg>
               </div>
               <div>
-                <p>ელ-ფოსტა</p>
+                <p data-en="Email">ელ-ფოსტა</p>
                 <a href="/cdn-cgi/l/email-protection#9cfdfbeef3f4f9f0ecf9eeb2f3fafaf5fff5fdf0dcfbf1fdf5f0b2fff3f1"
                   class="val"><span class="__cf_email__"
                     data-cfemail="94f5f3e6fbfcf1f8e4f1e6bafbf2f2fdf7fdf5f8d4f3f9f5fdf8baf7fbf9">agrohelper.official@gmail.com</span></a>
@@ -2395,19 +2476,19 @@
             <div class="contact-item">
               <div class="contact-icon">⏱️</div>
               <div>
-                <p>პასუხის დრო</p>
-                <span class="val">48 საათის განმავლობაში</span>
+                <p data-en="Response time">პასუხის დრო</p>
+                <span data-en="Within 48 hours" class="val">48 საათის განმავლობაში</span>
               </div>
             </div>
           </div>
           <div class="social-card">
-            <h3>შემოუერთდით საზოგადოებას</h3>
+            <h3 data-en="Join our community">შემოუერთდით საზოგადოებას</h3>
             <div class="social-buttons">
               <a href="https://www.facebook.com/profile.php?id=61579468957259" class="social-btn sb-facebook">f
                 Facebook</a>
               <a href="https://www.instagram.com/agrohelper.ge/" class="social-btn sb-instagram">📸 Instagram</a>
             </div>
-            <div class="social-note">
+            <div data-en="🌱 Follow us on social media and subscribe to AgroHelper's pages on Facebook and Instagram." class="social-note">
               🌱 გამოგვყევით სოციალურ ქსელებში
               გადმოდით და გამოიწერეთ AgroHelper - ის გვერდები:
               Facebook-ზე და Instagram-ზე.
@@ -2425,7 +2506,7 @@
       <img src="Stylized plant with .png" alt="AgroHelper" />
       <span>Agro<em>Helper</em></span>
     </div>
-    <p>&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
+    <p data-en="&amp;copy; 2026 AgroHelper. All rights reserved.">&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
   </footer>
 
   <!-- MODAL: APP DOWNLOAD BRIDGE -->
@@ -2435,11 +2516,11 @@
       <i class="fa-solid fa-mobile-screen-button"
         style="font-size: 44px; color: var(--leaf); margin-bottom: 0.8rem;"></i>
 
-      <h2 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest); margin-bottom: 0.4rem;">
+      <h2 data-en="Get AgroHelper" style="font-family:'Playfair Display', serif; font-size:1.6rem; color:var(--forest); margin-bottom: 0.4rem;">
         განცხადება დადეთ წამებში
       </h2>
 
-      <p style="color: #666; margin-bottom: 1.2rem; font-size: 0.92rem; line-height: 1.5;">
+      <p data-en="Download &lt;strong&gt;AgroHelper&lt;/strong&gt; and enjoy the full functionality:" style="color: #666; margin-bottom: 1.2rem; font-size: 0.92rem; line-height: 1.5;">
         აგრო ბაზარზე განცხადების დასადებად გადმოწერეთ <strong>AgroHelper</strong> და ისარგებლეთ სრული ფუნქციონალით:
       </p>
 
@@ -2448,40 +2529,40 @@
         <div class="feature-item">
           <i class="fa-solid fa-robot"></i>
           <div>
-            <strong>AI ასისტენტი</strong>
-            <span>იყენებს ქართულ აგრო-წიგნებსა და მასალებს</span>
+            <strong data-en="AI Assistant">AI ასისტენტი</strong>
+            <span data-en="Draws on Georgian agronomy books and materials">იყენებს ქართულ აგრო-წიგნებსა და მასალებს</span>
           </div>
         </div>
 
         <div class="feature-item">
           <i class="fa-solid fa-expand"></i>
           <div>
-            <strong>AI სკანერი</strong>
-            <span>მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა</span>
+            <strong data-en="AI Scanner">AI სკანერი</strong>
+            <span data-en="Instant plant disease diagnostics">მცენარეთა დაავადებების მყისიერი დიაგნოსტიკა</span>
           </div>
         </div>
 
         <div class="feature-item">
           <i class="fa-solid fa-cloud-sun"></i>
           <div>
-            <strong>ამინდი & სიახლეები</strong>
-            <span>ზუსტი აგრო პროგნოზი და სფეროს სიახლეები</span>
+            <strong data-en="Weather &amp; News">ამინდი & სიახლეები</strong>
+            <span data-en="Accurate agro forecasts and industry news">ზუსტი აგრო პროგნოზი და სფეროს სიახლეები</span>
           </div>
         </div>
 
         <div class="feature-item">
           <i class="fa-solid fa-droplet"></i>
           <div>
-            <strong>ჭკვიანი ხელსაწყოები</strong>
-            <span>მორწყვის მენეჯერი და განათების საზომი</span>
+            <strong data-en="Smart Tools">ჭკვიანი ხელსაწყოები</strong>
+            <span data-en="Watering manager and light meter">მორწყვის მენეჯერი და განათების საზომი</span>
           </div>
         </div>
 
         <div class="feature-item">
           <i class="fa-solid fa-seedling"></i>
           <div>
-            <strong>პირადი ბაღი</strong>
-            <span>დაამატეთ მცენარეები და მიიღეთ პერსონალური რჩევები</span>
+            <strong data-en="Personal Garden">პირადი ბაღი</strong>
+            <span data-en="Add plants and get personalized advice">დაამატეთ მცენარეები და მიიღეთ პერსონალური რჩევები</span>
           </div>
         </div>
       </div>
@@ -2491,7 +2572,7 @@
         <div class="store-wrapper">
           <div class="store-cta-label">
             <span class="store-cta-arrow">↓</span>
-            გადმოწერეთ
+            <span data-en="Download">გადმოწერეთ</span>
             <span class="store-cta-arrow">↓</span>
           </div>
           <div class="store-buttons-row">
@@ -2565,6 +2646,62 @@
 
   <!-- SCRIPTS -->
   <script>
+    // 0. Site language (KA / EN). Georgian is the default and stays exactly as written in the HTML;
+    //    English texts live in data-en="" attributes. In EN mode the Agro Bazaar is hidden (CSS: [data-market]).
+    const HOME_TITLES = {
+      ka: "AgroHelper - Modern Agriculture AI & აგრო ბაზარი",
+      en: "AgroHelper - Modern Agriculture AI"
+    };
+    const META_EN = [
+      ['meta[name="description"]', "AgroHelper — AI agriculture assistant: instant plant disease diagnostics, weather and soil data, smart watering and daily agro news."],
+      ['meta[property="og:title"]', "AgroHelper - AI Agriculture Assistant"],
+      ['meta[property="og:description"]', "Instant plant disease diagnostics, smart watering and daily agro news."],
+      ['meta[property="og:locale"]', "en_US"],
+      ['meta[name="twitter:title"]', "AgroHelper - AI Agriculture Assistant"],
+      ['meta[name="twitter:description"]', "Instant plant disease diagnostics, smart watering and daily agro news."]
+    ];
+    let siteLang = window.__lang || "ka";
+
+    function applySiteLang(lang) {
+      siteLang = lang === "en" ? "en" : "ka";
+      document.documentElement.setAttribute("data-lang", siteLang);
+      document.documentElement.setAttribute("lang", siteLang);
+
+      document.querySelectorAll("[data-en]").forEach((el) => {
+        if (el.dataset.orig === undefined) el.dataset.orig = el.innerHTML;
+        el.innerHTML = siteLang === "en" ? el.dataset.en : el.dataset.orig;
+      });
+
+      META_EN.forEach(([sel, enText]) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        if (el.dataset.orig === undefined) el.dataset.orig = el.getAttribute("content") || "";
+        el.setAttribute("content", siteLang === "en" ? enText : el.dataset.orig);
+      });
+
+      document.querySelectorAll("[data-set-lang]").forEach((b) => {
+        b.classList.toggle("active", b.dataset.setLang === siteLang);
+      });
+
+      switchLang(siteLang); // privacy policy tab follows the site language
+      if (document.getElementById("productPage")?.style.display !== "block") {
+        document.title = HOME_TITLES[siteLang];
+      }
+    }
+
+    function setSiteLang(lang) {
+      try { localStorage.setItem("agro_lang", lang); } catch (e) { }
+      applySiteLang(lang);
+      // Marketplace product pages are Georgian-only: leave them when switching to English
+      if (lang === "en" && document.getElementById("productPage")?.style.display === "block") {
+        goToMainSection("#home");
+      }
+    }
+
+    document.querySelectorAll("[data-set-lang]").forEach((b) => {
+      b.addEventListener("click", () => setSiteLang(b.dataset.setLang));
+    });
+
     // 1. Privacy Policy Language Switcher
     function switchLang(lang) {
       const ka = document.getElementById("lang-ka");
@@ -2845,7 +2982,7 @@
     function hideProductPage() {
       document.getElementById("productPage").style.display = "none";
       document.getElementById("mainContent").style.display = "block";
-      document.title = "AgroHelper - Modern Agriculture AI & აგრო ბაზარი";
+      document.title = HOME_TITLES[siteLang];
     }
 
     // Back button: strip ?product= from the URL and restore the market view
@@ -3032,6 +3169,9 @@
       fetchListings();
       showProductPageFromURL();
     });
+
+    // Apply the chosen site language right away (script is at the end of <body>, so no flash of the other language)
+    applySiteLang(siteLang);
   </script>
 </body>
 
