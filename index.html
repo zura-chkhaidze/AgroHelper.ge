@@ -13,6 +13,19 @@
         if (q.get("product")) lang = "ka";            // shared marketplace links are Georgian-only
         else if (q.get("lang") === "en" || q.get("lang") === "ka") lang = q.get("lang");
         else if (saved === "en" || saved === "ka") lang = saved;
+        else {
+          // First visit, no explicit choice: Georgia / Georgian-speaking visitors -> KA, everyone else -> EN.
+          // Crawlers always get KA so the Georgian SEO of the page stays as it is.
+          var ua = navigator.userAgent || "";
+          var isBot = /bot|crawl|spider|slurp|preview|facebookexternalhit/i.test(ua);
+          var tz = "";
+          try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e2) { }
+          var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ""];
+          var prefersKa = langs.some(function (l) { return /^ka(-|$)/i.test(l); });
+          var inGeorgia = tz === "Asia/Tbilisi";
+          // tz unknown (very old browser) -> keep Georgian default
+          lang = (isBot || !tz || inGeorgia || prefersKa) ? "ka" : "en";
+        }
       } catch (e) { }
       window.__lang = lang;
       document.documentElement.setAttribute("data-lang", lang);
