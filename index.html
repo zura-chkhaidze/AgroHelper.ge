@@ -43,6 +43,52 @@
   <meta property="og:url" content="https://agrohelper.ge/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ka_GE" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="canonical" id="canonical-link" href="https://agrohelper.ge/" />
+  <link rel="alternate" hreflang="ka" href="https://agrohelper.ge/" />
+  <link rel="alternate" hreflang="en" href="https://agrohelper.ge/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://agrohelper.ge/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://agrohelper.ge/#organization",
+        "name": "AgroHelper",
+        "url": "https://agrohelper.ge/",
+        "logo": "https://agrohelper.ge/logo.png",
+        "email": "support@agrohelper.ge",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61579468957259",
+          "https://www.instagram.com/agrohelper.ge/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://agrohelper.ge/#website",
+        "url": "https://agrohelper.ge/",
+        "name": "AgroHelper",
+        "inLanguage": ["ka", "en"],
+        "publisher": { "@id": "https://agrohelper.ge/#organization" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "AgroHelper",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "BusinessApplication",
+        "description": "AI agriculture assistant: plant disease diagnostics, weather and soil data, smart watering, daily agro news and a farmers' marketplace in Georgia.",
+        "inLanguage": ["ka", "en"],
+        "url": "https://agrohelper.ge/",
+        "installUrl": [
+          "https://play.google.com/store/apps/details?id=ge.agrohelper.app",
+          "https://apps.apple.com/us/app/agrohelper/id6761626943"
+        ],
+        "publisher": { "@id": "https://agrohelper.ge/#organization" }
+      }
+    ]
+  }
+  </script>
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AgroHelper - აგრო ბაზარი" />
   <meta name="twitter:description" content="იყიდეთ და გაყიდეთ აგრო პროდუქცია პირდაპირ ფერმერებისგან" />
@@ -1689,7 +1735,7 @@
   <!-- NAVIGATION -->
   <nav>
     <a href="#home" class="logo">
-      <img src="Stylized plant with .png" alt="AgroHelper Logo" />
+      <img src="logo.png" alt="AgroHelper Logo" />
       Agro<span>Helper</span>
     </a>
     <div class="nav-right">
@@ -1737,7 +1783,7 @@
       <div class="hero-grid">
         <div class="hero-text">
           <div class="hero-logo-badge">
-            <img src="Stylized plant with .png" />
+            <img src="logo.png" />
             <div class="section-label" style="
                 background: rgba(168, 224, 99, 0.15);
                 color: var(--lime);
@@ -2516,7 +2562,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <img src="Stylized plant with .png" alt="AgroHelper" />
+      <img src="logo.png" alt="AgroHelper" />
       <span>Agro<em>Helper</em></span>
     </div>
     <p data-en="&amp;copy; 2026 AgroHelper. All rights reserved.">&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
@@ -2996,6 +3042,8 @@
       document.getElementById("productPage").style.display = "none";
       document.getElementById("mainContent").style.display = "block";
       document.title = HOME_TITLES[siteLang];
+      document.querySelectorAll('script[data-product-schema]').forEach((s) => s.remove());
+      syncCanonical();
     }
 
     // Back button: strip ?product= from the URL and restore the market view
@@ -3124,6 +3172,22 @@
       window.location.href = "mailto:support@agrohelper.ge?subject=" + subject + "&body=" + body;
     }
 
+    // Keep <link rel="canonical"> and hreflang in line with the URL actually being shown
+    function syncCanonical() {
+      const ORIGIN = "https://agrohelper.ge/";
+      const q = new URLSearchParams(window.location.search);
+      let href = ORIGIN;
+      if (q.get("product")) {
+        href = ORIGIN + "?product=" + encodeURIComponent(q.get("product"));
+        // product pages are Georgian-only: no language alternates
+        document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((l) => l.remove());
+      } else if (q.get("lang") === "en") {
+        href = ORIGIN + "?lang=en";
+      }
+      const el = document.getElementById("canonical-link");
+      if (el) el.setAttribute("href", href);
+    }
+
     function injectProductSchema(item) {
       document.querySelectorAll('script[data-product-schema]').forEach(s => s.remove());
       const img = item.images?.[0]?.image || "https://agrohelper.ge/og-image.jpg";
@@ -3173,6 +3237,7 @@
       set("twitter:title", title, true);
       set("twitter:description", desc, true);
       set("twitter:image", img, true);
+      syncCanonical();
     }
 
 
@@ -3185,6 +3250,7 @@
 
     // Apply the chosen site language right away (script is at the end of <body>, so no flash of the other language)
     applySiteLang(siteLang);
+    syncCanonical();
   </script>
 </body>
 
