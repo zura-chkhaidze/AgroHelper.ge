@@ -1742,6 +1742,7 @@
       <ul>
         <li><a href="#home" data-en="Home">მთავარი</a></li>
         <li><a href="#features" data-en="Features">ფუნქციები</a></li>
+        <li><a href="/blog/" data-blog-link data-en="Blog">ბლოგი</a></li>
         <li data-market><a href="#market" class="nav-market-link"><span class="nav-market-dot"></span> 🌾 აგრო ბაზარი</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#contact" data-en="Contact">კონტაქტი</a></li>
@@ -2565,6 +2566,7 @@
       <img src="logo.png" alt="AgroHelper" />
       <span>Agro<em>Helper</em></span>
     </div>
+    <p><a href="/blog/" data-blog-link data-en="Blog" style="color:inherit">ბლოგი</a></p>
     <p data-en="&amp;copy; 2026 AgroHelper. All rights reserved.">&copy; 2026 AgroHelper. ყველა უფლება დაცულია.</p>
   </footer>
 
@@ -2740,6 +2742,10 @@
 
       document.querySelectorAll("[data-set-lang]").forEach((b) => {
         b.classList.toggle("active", b.dataset.setLang === siteLang);
+      });
+
+      document.querySelectorAll("[data-blog-link]").forEach((a) => {
+        a.setAttribute("href", siteLang === "en" ? "/en/blog/" : "/blog/");
       });
 
       switchLang(siteLang); // privacy policy tab follows the site language
