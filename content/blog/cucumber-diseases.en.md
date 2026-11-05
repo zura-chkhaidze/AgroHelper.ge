@@ -3,6 +3,7 @@ title: Common Cucumber Diseases: Symptoms and Prevention
 description: The most common cucumber diseases: powdery mildew, downy mildew, gray mold, bacterial wilt and mosaic virus. Symptoms and how to protect your plants.
 category: Diseases
 date: 2026-11-05
+image: /img/blog/cucumber-diseases.webp
 ---
 Cucumbers often get sick in gardens and greenhouses, especially in humid weather or poorly ventilated conditions. Spotting a disease early can mean saving your harvest. Below are the most common cucumber diseases and their main symptoms.
 
