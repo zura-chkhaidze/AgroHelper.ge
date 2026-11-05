@@ -3,6 +3,7 @@ title: Tomato Late Blight: Symptoms, Treatment and Prevention
 description: How to recognize tomato late blight, how it differs from early blight, and how to protect your harvest with prevention and timely treatment.
 category: Diseases
 date: 2026-11-03
+image: /img/blog/tomato-late-blight.webp
 ---
 Late blight is one of the most dangerous tomato diseases. It is caused by the water mold *Phytophthora infestans*, and in cool, wet weather it can spread through an entire planting within days. The earlier you spot it, the more of your harvest you can save.
 
