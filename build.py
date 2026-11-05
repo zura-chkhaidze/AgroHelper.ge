@@ -114,7 +114,8 @@ h3{color:var(--forest);font-size:1.15rem;margin:1.5rem 0 .5rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.4rem;margin-top:1.5rem}
 .card{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--bark);display:flex;flex-direction:column;box-shadow:0 2px 14px rgba(26,58,30,.08);transition:transform .2s}
 .card:hover{transform:translateY(-3px)}
-.thumb{height:150px;background:linear-gradient(135deg,var(--leaf),var(--mint));display:flex;align-items:flex-end;padding:.9rem;color:#fff;font-weight:600}
+.thumb{height:150px;background:linear-gradient(135deg,var(--leaf),var(--mint));display:flex;align-items:flex-end;padding:0;color:#fff;font-weight:600;overflow:hidden}
+.thumb span{padding:.9rem}
 .thumb img{width:100%;height:150px;object-fit:cover;display:block}
 .card .body{padding:1.1rem 1.2rem 1.3rem}
 .card h3{margin:0 0 .4rem;font-family:"Playfair Display",serif;font-size:1.15rem;line-height:1.35}
@@ -295,7 +296,7 @@ def footer(lang):
 def card(a):
     t = T[a["lang"]]
     thumb = (f'<img src="{esc(a["image"])}" alt="" loading="lazy">' if a.get("image")
-             else esc(a.get("category", "")))
+             else '<span>%s</span>' % esc(a.get("category", "")))
     return (f'<a class="card" href="{url_for(a["lang"], a["slug"])}"><div class="thumb">{thumb}</div>'
             f'<div class="body"><h3>{esc(a["title"])}</h3><p>{esc(a["description"])}</p>'
             f'<div class="m">{read_min(a)} {t["min"]} · {a["date"]}</div></div></a>')
