@@ -349,7 +349,19 @@ def build():
         switch = url_for(other, slug) if other in pair else (url_for(other) if other in langs_present else home_url(other))
         canonical = url_for(lang, slug)
         modified = a.get("updated", a["date"])
-        image = SITE + a["image"] if a.get("image", "").startswith("/") else OG_DEFAULT
+        # Facebook/LinkedIn do not reliably show WebP previews: use a JPG/PNG for og:image
+        cover = a.get("image", "")
+        og = a.get("og_image", "")
+        if not og and cover:
+            if cover.lower().endswith(".webp"):
+                cand = cover.rsplit(".", 1)[0] + ".jpg"
+                if (ROOT / cand.lstrip("/")).exists():
+                    og = cand
+                else:
+                    print(f"WARNING {slug}.{lang}.md: add {cand} (JPG copy of the cover) so Facebook can show the preview image")
+            else:
+                og = cover
+        image = SITE + og if og.startswith("/") else OG_DEFAULT
         ld = """<script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Article","headline":%s,"description":%s,"inLanguage":"%s","datePublished":"%s","dateModified":"%s","image":%s,
