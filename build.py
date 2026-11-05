@@ -122,7 +122,10 @@ h3{color:var(--forest);font-size:1.15rem;margin:1.5rem 0 .5rem}
 .card .m{font-size:.8rem;color:#8a7a6a;margin-top:.6rem}
 footer{background:var(--forest);color:#cfe0d1;text-align:center;padding:1.6rem 5%;font-size:.9rem}
 footer a{color:var(--lime)}
-@media(max-width:640px){h1{font-size:1.8rem}.nav-links a.hide-m{display:none}body{font-size:16px}}
+@media(max-width:640px){h1{font-size:1.8rem}.nav-links a.hide-m{display:none}body{font-size:16px}
+.nav{padding:.6rem 4%;gap:.4rem}.brand{font-size:1.02rem;gap:.35rem}.brand img{width:26px;height:26px}
+.nav-links{gap:.55rem;font-size:.85rem}.nav-links .lang{padding:.1rem .4rem;font-size:.78rem}.nav-links .dl{padding:.3rem .75rem;font-size:.8rem}
+.cta.big{padding:1.6rem 1rem}}
 """
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -153,6 +156,9 @@ def parse(path):
     if len(meta["description"]) > 170:
         print(f"WARNING {path.name}: description is {len(meta['description'])} chars (aim for <=155)")
     slug, lang = path.name[:-3].rsplit(".", 1)
+    for src in [meta.get("image", "")] + re.findall(r"!\[[^\]]*\]\(([^)\s]+)\)", m.group(2)):
+        if src.startswith("/") and not (ROOT / src.lstrip("/")).exists():
+            print(f"WARNING {path.name}: image file not found: {src}")
     meta.update(slug=slug, lang=lang, body=m.group(2).strip())
     return meta
 
